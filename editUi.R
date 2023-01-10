@@ -1,0 +1,64 @@
+
+# the first part info and disease
+fstUI <<- fluidRow(
+  br(),
+  
+  wellPanel(
+  h5(strong("This section enables modification for trails Meta information, Disease stage and Conditions")),
+  br(),
+  "Meta Information Table",
+  DTOutput('trlinfo_table'),
+  br(),
+  column(4,
+  h5(strong("Please Click on Save to verified information")) ),
+  column(4,
+  actionButton(inputId = "saveInfo",label = "SAVE",icon = shiny::icon("plus"),class = "btn-success",size = "md") ),
+  column(4)
+  ),
+  br(),
+  
+  wellPanel(
+    "Disease Stage table",
+    br(),
+    br(),
+    textOutput("disSum"),
+    br(),
+    DTOutput('trldis_table'),
+    br(),
+    column(4,
+    actionButton(inputId = "saveDis",label = "Save Edit",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
+    column(4,
+    actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
+    column(4)
+    ))
+
+
+secdUI <<- fluidRow(
+  br(),
+  h5(strong("Section enables modification for cohort information")),
+  br(),
+  wellPanel(
+    br(),
+    DTOutput('trlCrt_table'),
+    br(),
+    column(4,
+           h5(strong("Please Click on Save to verified information")) ),
+    column(4,
+           actionButton(inputId = "saveChrt",label = "SAVE",icon = shiny::icon("plus"),class = "btn-success",size = "md") ),
+    column(4)
+  ),
+  
+  h5(strong("Section enables modification for cohorts Biomarker")),
+  wellPanel(
+    br(),
+    
+    DTOutput('trlBio_table'),
+    br(),
+    column(4,
+           actionButton(inputId = "saveBio",label = "Save Edit",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
+    column(4,
+    actionButton(inputId = "disBio",label = "ADD",icon = shiny::icon("plus"),class = "btn-success",size = "md") ),
+    column(4)
+  )
+
+)

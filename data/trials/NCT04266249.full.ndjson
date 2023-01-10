@@ -1,0 +1,170 @@
+[
+  {
+    "info": {
+      "NCT": "NCT04266249",
+      "Protocol_No": "EA1181",
+      "jit": "Not JIT",
+      "trial_name": " CompassHER2-pCR - EA1181"
+    },
+    "disease": {
+      "summary": "HER2-positive stage II-IIIa breast cancer , Invasive Breast Carcinoma",
+      "details": [
+        {
+          "code": "Invasive Breast Carcinoma (BRCA)",
+          "selection": "include"
+        },
+	{
+	    "code": "(ipsilateral or contralateral) invasive breast cancer",
+          "selection": "exclude"
+	},
+	{
+	    "code": "ipsilateral ductal breast carcinoma in situ (DCIS)",
+	  "selection": "exclude"
+	},
+	{
+	    "code": "stage IV (metastatic) breast cancer",
+	  "selection": "exclude"
+	}     
+      ]
+    },
+    "query": {
+      "nct": "NCT04266249",
+      "title": "CompassHER2-pCR: Decreasing Chemotherapy for Breast Cancer Patients After Pre-surgery Chemo and Targeted Therapy",
+      "current_status": "Recruiting",
+      "status_verif_date": "September 2022",
+      "last_update_date": "September 16, 2022",
+      "trial_hold_status": "open",
+      "sponsor": "ECOG-ACRIN Cancer Research Group",
+      "brief_summary": "This trial studies how well paclitaxel, trastuzumab, and pertuzumab work in eliminating further chemotherapy after surgery in patients with HER2-positive stage II-IIIa breast cancer who have no cancer remaining at surgery (either in the breast or underarm lymph nodes) after pre-operative chemotherapy and HER2-targeted therapy. Drugs used in chemotherapy, such as paclitaxel, work in different ways to stop the growth of tumor cells, either by killing the cells, by stopping them from dividing, or by stopping them from spreading. Trastuzumab and pertuzumab are both a form of \"targeted therapy\" because they work by attaching themselves to specific molecules (receptors) on the surface of tumor cells, known as HER2 receptors. When these drugs attach to HER2 receptors, the signals that tell the cells to grow are blocked and the tumor cell may be marked for destruction by the body's immune system. Giving paclitaxel, trastuzumab, and pertuzumab may enable fewer chemotherapy drugs to be given without compromising patient outcomes compared to the usual treatment.",
+      "conditions": "Anatomic Stage II Breast Cancer AJCC v8 | Anatomic Stage IIA Breast Cancer AJCC v8 | Anatomic Stage IIB Breast Cancer AJCC v8 | Anatomic Stage IIIA Breast Cancer AJCC v8 | Invasive Breast Carcinoma | Prognostic Stage II Breast Cancer AJCC v8 | Prognostic Stage IIA Breast Cancer AJCC v8 | Prognostic Stage IIB Breast Cancer AJCC v8 | Prognostic Stage IIIA Breast Cancer AJCC v8",
+      "type": "Interventional",
+      "phase": "Phase 2",
+      "arm": [
+        {
+          "ArmID": "1",
+          "cohortlabel": "Arm A (pCR after surgery)",
+          "drug": "Docetaxel | Procedure: Lumpectomy | Procedure: Mastectomy | Nab-paclitaxel | Paclitaxel | Pertuzumab | Radiation: Radiation Therapy | Trastuzumab",
+          "arm_type": "Experimental",
+          "line_of_therapy": "Not available",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Arm A (pCR after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "ER (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+              "summary": "ER (IHC/FISH) positive  "
+            },
+            {
+              "cohort": "Arm A (pCR after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PR (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+              "summary": "PR (IHC/FISH) positive  "
+            },
+            {
+              "cohort": "Arm A (pCR after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "ER (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "negative",
+              "summary": "ER (IHC/FISH) negative  "
+            },
+            {
+              "cohort": "Arm A (pCR after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PR (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "negative",
+              "summary": "PR (IHC/FISH) negative  "
+            },
+            {
+              "cohort": "Arm A (pCR after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "HER2 (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+              "summary": "HER2 (IHC/FISH) positive  "
+            }
+          ]
+        },
+        {
+          "ArmID": "2",
+          "cohortlabel": "Arm B (residual invasive disease after surgery)",
+          "drug": "Docetaxel | Procedure: Lumpectomy | Procedure: Mastectomy | Nab-paclitaxel | Paclitaxel | Pertuzumab | Trastuzumab | Trastuzumab Emtansine",
+          "arm_type": "Experimental",
+          "line_of_therapy": "Not available",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Arm B (residual invasive disease after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "ER (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+              "summary": "ER (IHC/FISH) positive  "
+            },
+            {
+              "cohort": "Arm B (residual invasive disease after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PR (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+              "summary": "PR (IHC/FISH) positive  "
+            },
+            {
+              "cohort": "Arm B (residual invasive disease after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "ER (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "negative",
+              "summary": "ER (IHC/FISH) negative  "
+            },
+            {
+              "cohort": "Arm B (residual invasive disease after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PR (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "negative",
+              "summary": "PR (IHC/FISH) negative  "
+            },
+            {
+              "cohort": "Arm B (residual invasive disease after surgery)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "HER2 (IHC/FISH)",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+              "summary": "HER2 (IHC/FISH) positive  "
+            }
+          ]
+        }
+      ],
+      "docs": "http://averashare.phs-sfalls.amck.net/region/amck/research/cr/_layouts/15/start.aspx#/protocols/Breast.aspx",
+      "min_age": "18 Years",
+      "gender": "All",
+      "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04266249\" target=\"_blank\">NCT04266249<\/a>"
+    }
+  }
+]
