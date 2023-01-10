@@ -58,8 +58,138 @@
       "conditions": "Solid Tumors | GI Cancer",
       "type": "Interventional",
       "phase": "Phase 1",
+      "arm": [
+        {
+          "ArmID": "1",
+          "cohortlabel": "Arm 1: CGX1321 Single Agent dose escalation and dose expansion",
+          "drug": "CGX1321 | NA | NA",
+          "arm_type": "Experimental",
+          "line_of_therapy": "Not available",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Arm 1: CGX1321 Single Agent dose escalation and dose expansion",
+              "Gene": "RSPO2",
+              "Gene2": "Not available",
+              "Type": "Fusion",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available"
+            },
+            {
+              "cohort": "Arm 1: CGX1321 Single Agent dose escalation and dose expansion",
+              "Gene": "RSPO3",
+              "Gene2": "Not available",
+              "Type": "Fusion",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available"
+            },
+            {
+              "cohort": "Arm 1: CGX1321 Single Agent dose escalation and dose expansion",
+              "Gene": "RNF43",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Loss",
+              "summary": "RNF43 Mutation Loss "
+            }
+          ]
+        },
+        {
+          "ArmID": "2",
+          "cohortlabel": "Arm 2: CGX1321 in combination with pembrolizumab dose escalation, dose expansion and Roll-over,",
+          "drug": "CGX1321 | Pembrolizumab | NA",
+          "arm_type": "Experimental",
+          "line_of_therapy": "Not available",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Arm 2: CGX1321 in combination with pembrolizumab dose escalation, dose expansion and Roll-over,",
+              "Gene": "RSPO2",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RSPO2 Mutation  "
+            },
+            {
+              "cohort": "Arm 2: CGX1321 in combination with pembrolizumab dose escalation, dose expansion and Roll-over,",
+              "Gene": "RSPO3",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RSPO3 Mutation  "
+            },
+            {
+              "cohort": "Arm 2: CGX1321 in combination with pembrolizumab dose escalation, dose expansion and Roll-over,",
+              "Gene": "RNF43",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Loss",
+              "summary": "RNF43 Mutation loss "
+            }
+          ]
+        },
+        {
+          "ArmID": "3",
+          "cohortlabel": "Arm 3: CGX1321 in combination with encorafenib + cetuximab, dose escalation and dose expansion",
+          "drug": "CGX1321 | encorafenib | cetuximab",
+          "arm_type": "Experimental",
+          "line_of_therapy": "Not available",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Arm 3: CGX1321 in combination with encorafenib + cetuximab, dose escalation and dose expansion",
+              "Gene": "BRAF",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "V600E",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "BRAF V600E Mutation  "
+            },
+            {
+              "cohort": "Arm 3: CGX1321 in combination with encorafenib + cetuximab, dose escalation and dose expansion",
+              "Gene": "RSPO2",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RSPO2 Mutation  "
+            },
+            {
+              "cohort": "Arm 3: CGX1321 in combination with encorafenib + cetuximab, dose escalation and dose expansion",
+              "Gene": "RSPO3",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RSPO3 Mutation  "
+            },
+            {
+              "cohort": "Arm 3: CGX1321 in combination with encorafenib + cetuximab, dose escalation and dose expansion",
+              "Gene": "RNF43",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Loss",
+              "summary": "RNF43 Mutation loss "
+            }
+          ]
+        }
+      ],
       "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
-      "locations": "Sioux Falls",
+      "locations": "NA",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT02675946\" target=\"_blank\">NCT02675946<\/a>"
