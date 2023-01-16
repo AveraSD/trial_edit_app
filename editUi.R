@@ -1,13 +1,16 @@
 
 # the first part info and disease
-fstUI <<- fluidRow(
+fstUI <<- fluidPage(
+  fluidRow(
+    shinyjs::useShinyjs(),
   br(),
   
   wellPanel(
   h5(strong("This section enables modification for trails Meta information, Disease stage and Conditions")),
   br(),
   "Meta Information Table",
-  DTOutput('trlinfo_table'),
+  div(style = "margin-top: 20px;"),
+  DTOutput('trlinfo_table',width = "100%"),
   br(),
   column(4,
   h5(strong("Please Click on Save to verified information")) ),
@@ -31,6 +34,7 @@ fstUI <<- fluidRow(
     actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
     column(4)
     ))
+)
 
 
 secdUI <<- fluidRow(

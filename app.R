@@ -106,14 +106,95 @@ ui <- dashboardPage(
     .tabbable > .nav > li > a {background-color: #D3D3D3 ;  color:black; width: 300PX;} 
                                        .tabbable > .nav > li[class=active] > a {background-color: #505050; color:white} ")),
                       box(
-                        width = 12, background = "yellow",
+                        width = 12, background = "black",
                         column(6,
-                               h5(strong("Click on the Submit Button to Add Updates for selected trail: "))
+                               h5(strong("HIT THE SUBMIT BUTTON TO SAVE THE UPDATED TRIAL TO JSON FILE: "))
                         ),
-                        column(6,
-                               actionButton("addIn",label = "SUBMIT", icon = shiny::icon("plus"),size = "lg",width = '300px', class = "btn-success")),
+                        column(4,
+                               actionButton("addIn",label = " SUBMIT ", icon = shiny::icon("file"),size = "lg",width = '300px', class = "btn-danger")),
                       ),
-                      
+                       box(title = "Values to copy paste for Cell Edits",
+                         width = 12, status = "warning",
+                         column(3,
+                                
+                                #  style = "display: inline-block;",
+                                  #style = "margin-top: 10px;",
+                                  pickerInput(
+                                    inputId = "stageView",
+                                    label = "Stage Available",
+                                    choices = c("Stage I","Stage II","Stage III","Stage IV","Methylated","Un-resectable","resectable",
+                                                "Unmethylated","Advanced Stage","Recurrent","Metastatic","Early stage", "New diagnosis","Relapsed/Refractory","Post Cellular Therapy",
+                                                "Smoldering Myeloma"),
+                                    multiple = T,
+                                    options = pickerOptions(multipleSeparator = ";",actionsBox = TRUE,liveSearch = TRUE),
+                                    width = "200px"
+                                
+                                )),
+                         column(3,
+                                #style = "display: inline-block;",
+                                   # style = "margin-top: 10px;",
+                                    h5("Stage selected: "), 
+                                    textOutput("stage_link")
+                                    
+                                ),
+                         column(3,
+                                
+                                 # style = "display: inline-block;",
+                                  #style = "margin-top: 15px;",
+                                  pickerInput(
+                                    inputId = "LnoTView",
+                                    label = "Line Of Therapy Available",
+                                    choices = c("Not available", 1, 2, 3, "3+", "Neoadjuvant","Adjuvant", "Maintenance", "> 3 lines of prior treatment", "Recurrent","Registry", "Surgical", "Sequencing"),
+                                    multiple = T,
+                                    options = pickerOptions(multipleSeparator = ";",actionsBox = TRUE,liveSearch = TRUE),
+                                    width = "200px"
+                                  
+                                )),
+                         column(3,
+                                #style = "display: inline-block;",
+                                   # style = "margin-top: 15px;",
+                                    h5("Line Of Therapy selected: "),
+                                    textOutput("lnot_link")
+                                
+                         ),
+                        
+                         # column(3,
+                         # 
+                         #        # style = "display: inline-block;",
+                         #        # style = "margin-top: 15px;",
+                         #        pickerInput(
+                         #          inputId = "statusView",
+                         #          label = "Status Type Available",
+                         #          choices = c("Not available", "open", "on hold", "closed", "coming soon"),
+                         #          multiple = F,
+                         #          options = pickerOptions(actionsBox = TRUE, liveSearch = TRUE),
+                         #          width = "200px"
+                         # 
+                         #        )),
+                         column(6,
+                                #style = "display: inline-block;",
+                                #style = "margin-top: 15px;",
+                                h5("Status Type Available: "),
+                                textOutput("stat_link",)
+
+                         ),
+                         # column(3,
+                         #          pickerInput(
+                         #            inputId = "locationView",
+                         #            label = "Location Available",
+                         #            choices = c("Sioux Fall SD","MN"),
+                         #            multiple = T,
+                         #            options = pickerOptions(multipleSeparator = ";",actionsBox = TRUE),
+                         #            width = "200px"
+                         # 
+                         #        )),
+                         column(6,
+                                    h5("Location Available: "),
+                                    textOutput("loca_link")
+
+                         )
+
+                       ),
                       
                       tabsetPanel(id = "tabset", type = "pills",
                                   
@@ -140,6 +221,12 @@ ui <- dashboardPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output,session) {
+  
+  # for copying pasting the values onto the cell of selection 
+  output$stage_link <- renderText({input$stageView})
+  output$loca_link <- renderText({paste0("Sioux Fall SD")})
+  output$lnot_link <- renderText({input$LnoTView})
+  output$stat_link <- renderText({paste0("open , on hold , closed , coming soon , Not available")})
 
   
   # helper function to create buttons for the biomarker section
@@ -200,9 +287,9 @@ server <- function(input, output,session) {
  
  output$trlinfo_table = renderDataTable({
    tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
-                             Phase , StudyType, Documentation, MinAge,Gender, Link ) %>% mutate(location = "NA")
+                             Phase , StudyType, Documentation, MinAge,Gender, Link ) %>% mutate(location = "NA", docUpdate = "2023-MM-DD")
    displayTb = (t(tbRec$infoTb))
-   datatable(displayTb, colnames = c("Details") , editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+   datatable(isolate(displayTb), colnames = c("Details") , editable = TRUE, class = "compact stripe row-border nowrap", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto" )
    #print(tbRec$infoTb$MinAge)
    #tbRec$infoUp = (t(displayTb))
@@ -211,16 +298,38 @@ server <- function(input, output,session) {
    #print(proxy)
    })
  
+ # for case with multiple updates on meta information table
+ 
+ observeEvent(input$trlinfo_table_cell_edit,{
+   displayTb = (t(tbRec$infoTb ))
+   ferow = row.names(displayTb)
+   cell <- input[["trlinfo_table_cell_edit"]]
+   edtRow = ferow[[input$trlinfo_table_cell_edit$row]]
+   #print(edtRow)
+  # print(cell)
+   cell$row = edtRow
+  # cell$col = input$trlinfo_table_cell_edit$row 
+   print(cell)
+  # tbRec$infoUp = tbRec$infoTb
+  # tbRec$infoTb [cell$col, cell$row] <- cell$value
+  # displayTb = (t(tbRec$infoTb ))
+   #print(nrow(displayTb))
+ # print(input$trlinfo_table_cell_edit)
+   #DT::replaceData(dataTableProxy("trlinfo_table"),  displayTb , resetPaging = FALSE,)
+   displayTb <<- editData(displayTb ,  cell, proxy = dataTableProxy("trlinfo_table") )
+   #print(row.names(displayTb))
+   tbRec$infoTb = (t(displayTb))
+ })
  
  observeEvent(input$saveInfo, {
-   cell <- input[["trlinfo_table_cell_edit"]]
-  # print(nrow(as.numeric(cell)))
-   if (is.null(cell)) {
-     tbRec$infoUp <- tbRec$infoTb
-   }else{
-     tbRec$infoUp <- tbRec$infoTb
-     tbRec$infoUp[cell$col, cell$row] <- cell$value
-   }
+   tbRec$infoUp <- tbRec$infoTb
+   #cell <- input[["trlinfo_table_cell_edit"]]
+   # if (is.null(cell)) {
+   #   tbRec$infoUp <- tbRec$infoTb
+   # }else{
+   #   tbRec$infoUp <- tbRec$infoTb
+   #   tbRec$infoUp[cell$col, cell$row] <- cell$value
+   # }
   
    #df(newdf)
  })
@@ -241,9 +350,6 @@ server <- function(input, output,session) {
  
  # Add Button action for adding additional row for the Disease data
  observeEvent(input$disAdd,{
-#   output$sum_tb <- renderText({
-#     tbRec$currTb$sumDis
-#   })
    modal_dise( OgTis ="", inExIn = "", stageIn = "") 
  })
  #proxyDis <- dataTableProxy("trldis_table")
@@ -464,7 +570,7 @@ server <- function(input, output,session) {
       bioMarkTb <- as_tibble(tbRec$biomUp)
      # # save the biomarker info entered
       alltoAmBK = left_join(armTb, bioMarkTb, by = c('ArmID'))
-      print(alltoAmBK)
+     # print(alltoAmBK)
      
      # 
      # 
@@ -515,7 +621,7 @@ server <- function(input, output,session) {
                       # },
                       docs = infoDis$Documentation,
                      locations = infoDis$location,
-                      #doclastupdate = input$dt,
+                     doclastupdate = input$dt,
                       min_age = infoDis$MinAge,
                       gender = infoDis$Gender,
                       link = infoDis$Link
