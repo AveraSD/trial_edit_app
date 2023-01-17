@@ -8,15 +8,16 @@ fstUI <<- fluidPage(
   wellPanel(
   h5(strong("This section enables modification for trails Meta information, Disease stage and Conditions")),
   br(),
-  "Meta Information Table",
+ h5("Meta Information Table"),
   div(style = "margin-top: 20px;"),
+ column(4,
+        h5(strong("Please Click on Save to verified information")) ),
+ column(4,
+        actionButton(inputId = "saveInfo",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md") ),
+ column(4),
   DTOutput('trlinfo_table',width = "100%"),
   br(),
-  column(4,
-  h5(strong("Please Click on Save to verified information")) ),
-  column(4,
-  actionButton(inputId = "saveInfo",label = "SAVE",icon = shiny::icon("plus"),class = "btn-success",size = "md") ),
-  column(4)
+  
   ),
   br(),
   br(),
@@ -25,6 +26,7 @@ fstUI <<- fluidPage(
   wellPanel(
     fluidRow(
       h5(strong("Document table")),
+      div(style = "margin-top: 20px;"),
       column(4,
              h5(strong("Once Information verified Click on SAVE: " ))
       ),
@@ -32,7 +34,7 @@ fstUI <<- fluidPage(
              actionButton(inputId = "saveDoc",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md")),
       column(4),
       br(),
-      DTOutput('trldoc_table'),
+      DTOutput('trldoc_table',width = "100%"),
       br()
     )),
 
@@ -44,6 +46,7 @@ br(),
   wellPanel(
     fluidRow(
    h5(strong("Disease Stage table")),
+   div(style = "margin-top: 20px;"),
    column(4,
           h5(strong("Once Information verified Click on SAVE: " ))
           ),
@@ -53,41 +56,48 @@ br(),
    br(),
     textInput("disSum","Overall Disease Summary: ",width = "300px"),
     br(),
-    DTOutput('trldis_table'),
+    DTOutput('trldis_table',width = "100%"),
     br(),
     column(4,
-    actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
+    actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),class = "btn-success",size = "lg")),
     column(4)
     ))
 ))
 
 
-secdUI <<- fluidRow(
+secdUI <<- fluidPage(
+  fluidRow(
+    shinyjs::useShinyjs(),
   br(),
   h5(strong("Section enables modification for cohort information")),
   br(),
   wellPanel(
-    br(),
-    DTOutput('trlCrt_table'),
-    br(),
     column(4,
-           h5(strong("Please Click on Save to verified information")) ),
+           h5(strong("Once Information verified Click on SAVE:")) ),
     column(4,
-           actionButton(inputId = "saveChrt",label = "SAVE",icon = shiny::icon("plus"),class = "btn-success",size = "md") ),
-    column(4)
+           actionButton(inputId = "saveChrt",label = "Save Verify",icon = shiny::icon("file"),class = "btn-danger",size = "md") ),
+    column(4),
+    br(),
+    br(),
+    br(),
+    DTOutput('trlCrt_table',width = "100%"),
+    br(),
+   
   ),
   
   h5(strong("Section enables modification for cohorts Biomarker")),
   wellPanel(
+      column(4,
+             h5(strong("Once Information verified Click on SAVE:")) ),
+      column(4,
+             actionButton(inputId = "saveBio",label = "Save Verify",icon = shiny::icon("file"),class = "btn-danger",size = "md")),
+      column(4),
+      br(),
     br(),
-    
-    DTOutput('trlBio_table'),
     br(),
-    column(4,
-           actionButton(inputId = "saveBio",label = "Save Edit",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
-    column(4,
-    actionButton(inputId = "disBio",label = "ADD",icon = shiny::icon("plus"),class = "btn-success",size = "md") ),
-    column(4)
-  )
-
+    DTOutput('trlBio_table',width = "100%"),
+    br(),
+    actionButton(inputId = "disBio",label = "ADD",icon = shiny::icon("plus"),class = "btn-success",size = "lg") 
+  
 )
+))

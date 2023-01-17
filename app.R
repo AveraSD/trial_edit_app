@@ -195,15 +195,15 @@ ui <- dashboardPage(
                          )
 
                        ),
-                      
+                      br(),
+                    
+                      uiOutput("temp1" ),
+                      br(),
                       tabsetPanel(id = "tabset", type = "pills",
                                   
                                   tabPanel("Trial Part 1",
                                            br(),
-                                           br(),
-                                           uiOutput("temp1" ),
                                            uiOutput("firsttab")
-                                          
                                            ), 
                                   tabPanel("Trial Part 2",
                                            uiOutput("secondtab")
@@ -278,7 +278,7 @@ server <- function(input, output,session) {
  
  # Just to display NCT id of the trial selected 
  output$temp1 = renderText({
-   HTML(paste0("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t","<b>","THE TRIAL SELECTED : ",parsedOut() ,"</b>" ))
+   HTML(paste0("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t","<b>","THE TRIAL SELECTED : ",parsedOut() ,"</b>" ))
  })
  
  # Display the editable table for the Trial Part 1 TAB 
@@ -288,7 +288,8 @@ server <- function(input, output,session) {
  output$trlinfo_table = renderDataTable({
    tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
                              Phase , StudyType, MinAge,Gender, Link )
-   datatable(isolate(tbRec$infoTb), colnames = c("Detials"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+   displayTb = t(tbRec$infoTb)
+   datatable(displayTb, colnames = c("Detials"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto")
    })
  
@@ -338,7 +339,7 @@ server <- function(input, output,session) {
  output$trldoc_table = renderDataTable({
    tbRec$docRec = tbRec$currTb  %>% select( Documentation ) %>% mutate(location = "NA", docUpdate = "2023-MM-DD")
   
-   datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+   datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
  })
  
@@ -357,7 +358,7 @@ server <- function(input, output,session) {
  
  # Displaying the Disease summary table 
  output$disSum <- renderText({
-   paste0(tbRec$currTb$sumDis)
+   tbRec$currTb$sumDis
  })
  
  # Displaying the Disease table 
