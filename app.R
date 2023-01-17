@@ -174,7 +174,7 @@ ui <- dashboardPage(
                          column(6,
                                 #style = "display: inline-block;",
                                 #style = "margin-top: 15px;",
-                                h5("Status Type Available: "),
+                                h5(strong("Status Type Available: ")),
                                 textOutput("stat_link",)
 
                          ),
@@ -189,15 +189,32 @@ ui <- dashboardPage(
                          # 
                          #        )),
                          column(6,
-                                    h5("Location Available: "),
+                                    h5(strong("Location Available: ")),
                                     textOutput("loca_link")
 
-                         )
+                         ),
+                         br(),
+                         column(6,
+                                pickerInput(
+                                  inputId = "DocView",
+                                  label = "Refernce Links",
+                                  choices = list("Tempus" = c("<a href=\"https://therapies.securetempus.com/\">Tempus</a>"),"Caris" = c("<a href=\"https://trialplus.carisls.com/\">Caris</a>"), "Optimal" = c("<a href=\"https://www.optimalresearchportal.com/login/\">Optimal</a>")),
+                                  multiple = F,
+                                  #options = pickerOptions(actionsBox = TRUE,liveSearch = TRUE),
+                                  width = "200px"
+                                  
+                                )
+                                ),
+                         column(6,
+                                h5(strong("Reference Link selected: ")),
+                                textOutput("Doc_link")
+                                )
 
                        ),
                       br(),
-                    
-                      uiOutput("temp1" ),
+                      box(width = 12,background = "blue",
+                      uiOutput("temp1" )
+                      ),
                       br(),
                       tabsetPanel(id = "tabset", type = "pills",
                                   
@@ -227,6 +244,7 @@ server <- function(input, output,session) {
   output$loca_link <- renderText({paste0("Sioux Fall SD")})
   output$lnot_link <- renderText({input$LnoTView})
   output$stat_link <- renderText({paste0("open , on hold , closed , coming soon , Not available")})
+  output$Doc_link <- renderText({input$DocView})
 
   
   # helper function to create buttons for the biomarker section
@@ -329,7 +347,7 @@ server <- function(input, output,session) {
      tbRec$infoUp[cell$col, cell$row] <- cell$value
      tbRec$infoTb <-  tbRec$infoUp
    }
-  
+   alert("Saved successfully!")
    #df(newdf)
  })
  
@@ -353,12 +371,12 @@ server <- function(input, output,session) {
  # save the Document datatable with edit update 
  observeEvent(input$saveDoc, {
    tbRec$docUp = tbRec$docRec
-   
+   alert("Saved successfully!")
  })
  
  # Displaying the Disease summary table 
  output$disSum <- renderText({
-   tbRec$currTb$sumDis
+   paste0("Overall Disease Summary: ", tbRec$currTb$sumDis)
  })
  
  # Displaying the Disease table 
@@ -385,6 +403,7 @@ server <- function(input, output,session) {
  # save the disease datatable with edit update 
  observeEvent(input$saveDis, {
      tbRec$disUp = tbRec$disRec
+     alert("Saved successfully!")
    
  })
  
@@ -415,7 +434,7 @@ server <- function(input, output,session) {
  
  
 
- 
+ # --------------------------- TabSet Panel 2 ---------------------------------------------- #
 
  
  # InsrtDis = reactive({
@@ -431,27 +450,40 @@ server <- function(input, output,session) {
  output$trlCrt_table = renderDataTable({
    tbRec$armRec = tbRec$currTb %>% select(arms) %>% unnest(arms) %>% select(-biomarker)
  # print(tbRec$armRec)
-   datatable(tbRec$armRec,
+   datatable(isolate(tbRec$armRec),
              editable = TRUE, 
              class = "compact stripe row-border nowrap", options = list(searching = FALSE, scrollX = TRUE, pageLength = 30,dom = 'tip' ), 
-             selection = 'single', width = "auto")
+             selection = 'single', width = "auto",rownames = FALSE)
              
  })
  
  # save the Cohort + arm datatable with edit update 
  
- observeEvent(input$saveChrt, {
-   cellChrt <- input[["trlCrt_table_cell_edit"]]
-   print(cellChrt)
-   if (is.null(cellChrt)) {
-     tbRec$armUp <- tbRec$armRec 
-   }else{
-     tbRec$armUp <- tbRec$armRec 
-     tbRec$armUp[cellChrt$row, cellChrt$col] <- cellChrt$value
-   }
+ observeEvent(input$trlCrt_table_cell_edit,{
+   #celldis <- input[["trldoc_table_cell_edit"]]
+   tbRec$armRec <<- editData(tbRec$armRec, input$trlCrt_table_cell_edit, proxy = dataTableProxy("trlCrt_table"), rownames = FALSE)
    
-   #print(tbRec$armUp)
  })
+ 
+ 
+ # save the Document datatable with edit update 
+ observeEvent(input$saveChrt, {
+   tbRec$armUp = tbRec$armRec 
+   alert("Saved successfully!")
+ })
+ 
+ # observeEvent(input$saveChrt, {
+ #   cellChrt <- input[["trlCrt_table_cell_edit"]]
+ #   print(cellChrt)
+ #   if (is.null(cellChrt)) {
+ #     tbRec$armUp <- tbRec$armRec 
+ #   }else{
+ #     tbRec$armUp <- tbRec$armRec 
+ #     tbRec$armUp[cellChrt$row, cellChrt$col] <- cellChrt$value
+ #   }
+ #   
+ #   #print(tbRec$armUp)
+ # })
  
  
  # update the information on the arm / cohort information 
@@ -477,11 +509,7 @@ server <- function(input, output,session) {
    # print(celldis)
    tbRec$biomRec <<- editData(tbRec$biomRec, input$trlBio_table_cell_edit, proxy = dataTableProxy("trlBio_table"), rownames = FALSE)
    print(tbRec$biomRec)
-   #proxy <- dataTableProxy("trldis_table")
-   #  DT::replaceData(dataTableProxy("trldis_table"),  tbRec$disRec , resetPaging = FALSE,)
-   # editable = list(target = "all"),
-   # class = "compact stripe row-border nowrap", options = list(searching = FALSE, scrollX = TRUE, pageLength = 30,dom = 'tip' ), 
-   # selection = 'single',width = "auto" )
+  
  })
  
  # add the entries into the the Biomarker tibble on add button action 
@@ -515,14 +543,9 @@ server <- function(input, output,session) {
  })
  
  observeEvent(input$saveBio, {
-   #cellBio <- input[["trlBio_table_cell_edit"]]
-  #### if (!is.na(cellBio)) {
-  # tbRec$biomUp <- tbRec$biomRec
-  # tbRec$biomUp[cellBio$row, cellBio$col] <- cellBio$value
- #  } else{
+  
      tbRec$biomUp <- tbRec$biomRec
-  # }
-   #df(newdf)
+     alert("Saved successfully!")
  })
  # 
  ### remove edit modal when close or submit button is clicked
@@ -545,25 +568,13 @@ server <- function(input, output,session) {
      infoDis <-  as_tibble(tbRec$infoUp)
      docDis <- as_tibble(tbRec$docUp)
      
-     # # save the arm info from query output
-     # armTb <- left_join(disAd$armDf, disAd$Armpt1Tb_out, by = "cohortlabel")
-     # armTb <- armTb %>% rownames_to_column(var = "ArmID")
-     # armTb <- tibble(
-     #   ArmID = armTb$ArmID,
-     #   cohortlabel = armTb$cohortlabel,
-     #   drug = armTb$drug,
-     #   arm_type = armTb$arm_type,
-     #   line_of_therapy = armTb$lineTx,
-     #   arm_hold_status = armTb$armStatus
-     # )
-     # 
+
       # save the disease info entered
       tempDisease = tbRec$disUp %>% group_by(code,selection) %>%  summarise(stage = paste0(stage,collapse = ";"))
       DisTab <- as_tibble(tempDisease)
      
       
       # Enter the arm table in order 
-      
       armTb = as_tibble(tbRec$armUp)
     #  print(armTb)
       bioMarkTb <- as_tibble(tbRec$biomUp)
@@ -571,12 +582,6 @@ server <- function(input, output,session) {
       alltoAmBK = left_join(armTb, bioMarkTb, by = c('ArmID'))
      # print(alltoAmBK)
      
-     # 
-     # 
-     # 
-     # # adding the biomarker tibble to the respective cohort 
-     # alltoAmBK = left_join(armTb, tb_add, by = c('ArmID' = 'armID'))
-     # #print(colnames(alltoAmBK))
      colnames(alltoAmBK) = c("ArmID", "cohortlabel", "drug" ,"arm_type" ,"line_of_therapy", "arm_hold_status",          
                               "cohort", "Gene" , "Gene2", "Type" , "Variant","Selection", "Function" ,"summary" )
      # 

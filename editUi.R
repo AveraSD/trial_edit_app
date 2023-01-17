@@ -54,12 +54,17 @@ br(),
           actionButton(inputId = "saveDis",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md")),
    column(4),
    br(),
-    textInput("disSum","Overall Disease Summary: ",width = "300px"),
+   br(),
+   br(),
+   column(10,
+    textOutput("disSum")
+    ),
     br(),
+   br(),
     DTOutput('trldis_table',width = "100%"),
     br(),
     column(4,
-    actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),class = "btn-success",size = "lg")),
+    actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),width = '200px',class = "btn-success",size = "lg")),
     column(4)
     ))
 ))
@@ -97,7 +102,7 @@ secdUI <<- fluidPage(
     br(),
     DTOutput('trlBio_table',width = "100%"),
     br(),
-    actionButton(inputId = "disBio",label = "ADD",icon = shiny::icon("plus"),class = "btn-success",size = "lg") 
+    actionButton(inputId = "disBio",label = "New Entry",icon = shiny::icon("plus"),width = '200px',class = "btn-success",size = "lg") 
   
 )
 ))
