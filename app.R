@@ -287,63 +287,84 @@ server <- function(input, output,session) {
  
  output$trlinfo_table = renderDataTable({
    tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
-                             Phase , StudyType, Documentation, MinAge,Gender, Link ) %>% mutate(location = "NA", docUpdate = "2023-MM-DD")
-   displayTb = (t(tbRec$infoTb))
-   datatable(isolate(displayTb), colnames = c("Details") , editable = TRUE, class = "compact stripe row-border nowrap", options = list(
-     searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto" )
-   #print(tbRec$infoTb$MinAge)
-   #tbRec$infoUp = (t(displayTb))
-  # proxy <- dataTableProxy("trlinfo_table")
-  # proxy %>% selectRows(NULL)
-   #print(proxy)
+                             Phase , StudyType, MinAge,Gender, Link )
+   datatable(isolate(tbRec$infoTb), colnames = c("Detials"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+     searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto")
    })
  
  # for case with multiple updates on meta information table
  
- observeEvent(input$trlinfo_table_cell_edit,{
-   displayTb = (t(tbRec$infoTb ))
-   ferow = row.names(displayTb)
-   cell <- input[["trlinfo_table_cell_edit"]]
-   edtRow = ferow[[input$trlinfo_table_cell_edit$row]]
-   #print(edtRow)
-  # print(cell)
-   cell$row = edtRow
-  # cell$col = input$trlinfo_table_cell_edit$row 
-   print(cell)
-  # tbRec$infoUp = tbRec$infoTb
-  # tbRec$infoTb [cell$col, cell$row] <- cell$value
-  # displayTb = (t(tbRec$infoTb ))
-   #print(nrow(displayTb))
- # print(input$trlinfo_table_cell_edit)
-   #DT::replaceData(dataTableProxy("trlinfo_table"),  displayTb , resetPaging = FALSE,)
-   displayTb <<- editData(displayTb ,  cell, proxy = dataTableProxy("trlinfo_table") )
-   #print(row.names(displayTb))
-   tbRec$infoTb = (t(displayTb))
- })
+ # observeEvent(input$trlinfo_table_cell_edit,{
+ #   displayTb = (t(tbRec$infoTb ))
+ #   ferow = row.names(displayTb)
+ #  cell <- input[["trlinfo_table_cell_edit"]]
+ #   edtRow = ferow[[input$trlinfo_table_cell_edit$row]]
+ #   #print(edtRow)
+ #    print(cell)
+ #   cell$row = edtRow
+ #  # cell$col = input$trlinfo_table_cell_edit$row 
+ #  # print(cell)
+ #  # tbRec$infoUp = tbRec$infoTb
+ #  # tbRec$infoTb [cell$col, cell$row] <- cell$value
+ #   #displayTb = (t(tbRec$infoTb ))
+ #   #displayTb[cell$row, cell$col] <- cell$value
+ #   
+ #   #print(nrow(displayTb))
+ # # print(input$trlinfo_table_cell_edit)
+ #  # DT::replaceData(dataTableProxy("trlinfo_table"),  displayTb , resetPaging = FALSE,)
+ #    tbRec$infoUp<<- editData( tbRec$infoUp ,  cell, proxy = dataTableProxy("trlinfo_table") )
+ #  # print(displayTb)
+ #   tbRec$infoTb = (t(displayTb))
+ #   print(tbRec$infoTb)
+ # })
  
  observeEvent(input$saveInfo, {
-   tbRec$infoUp <- tbRec$infoTb
-   #cell <- input[["trlinfo_table_cell_edit"]]
-   # if (is.null(cell)) {
-   #   tbRec$infoUp <- tbRec$infoTb
-   # }else{
-   #   tbRec$infoUp <- tbRec$infoTb
-   #   tbRec$infoUp[cell$col, cell$row] <- cell$value
-   # }
+   #tbRec$infoUp <- tbRec$infoTb
+   cell <- input[["trlinfo_table_cell_edit"]]
+   if (is.null(cell)) {
+     tbRec$infoUp <- tbRec$infoTb
+   }else{
+     tbRec$infoUp <- tbRec$infoTb
+     tbRec$infoUp[cell$col, cell$row] <- cell$value
+     tbRec$infoTb <-  tbRec$infoUp
+   }
   
    #df(newdf)
  })
  
+ 
+ # Display editable table - "Document Information table"
+ 
+ output$trldoc_table = renderDataTable({
+   tbRec$docRec = tbRec$currTb  %>% select( Documentation ) %>% mutate(location = "NA", docUpdate = "2023-MM-DD")
+  
+   datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+     searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
+ })
+ 
+ observeEvent(input$trldoc_table_cell_edit,{
+   #celldis <- input[["trldoc_table_cell_edit"]]
+   tbRec$docRec <<- editData(tbRec$docRec, input$trldoc_table_cell_edit, proxy = dataTableProxy("trldoc_table"), rownames = FALSE)
+   
+ })
+ 
+ 
+ # save the Document datatable with edit update 
+ observeEvent(input$saveDoc, {
+   tbRec$docUp = tbRec$docRec
+   
+ })
+ 
  # Displaying the Disease summary table 
  output$disSum <- renderText({
-   paste0( "Overall Disease Summary: ",tbRec$currTb$sumDis)
+   paste0(tbRec$currTb$sumDis)
  })
  
  # Displaying the Disease table 
  output$trldis_table = renderDataTable({
    tbRec$disRec = tbRec$currTb  %>% select(disease) %>% unnest(disease) %>% mutate(stage = "NA")
   # print(tbRec$disRec)
-   datatable(isolate(tbRec$disRec), editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+   datatable(isolate(tbRec$disRec), editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 30,dom = 'tip' ), selection = 'single',width = "auto",rownames = F )
  })
  
@@ -355,38 +376,15 @@ server <- function(input, output,session) {
  #proxyDis <- dataTableProxy("trldis_table")
  observeEvent(input$trldis_table_cell_edit,{
    #celldis <- input[["trldis_table_cell_edit"]]
-  # print(celldis)
    tbRec$disRec <<- editData(tbRec$disRec, input$trldis_table_cell_edit, proxy = dataTableProxy("trldis_table"), rownames = FALSE)
-  # print(tbRec$disRec)
-   #proxy <- dataTableProxy("trldis_table")
-#  DT::replaceData(dataTableProxy("trldis_table"),  tbRec$disRec , resetPaging = FALSE,)
-               # editable = list(target = "all"),
-               # class = "compact stripe row-border nowrap", options = list(searching = FALSE, scrollX = TRUE, pageLength = 30,dom = 'tip' ), 
-               # selection = 'single',width = "auto" )
-     
   
-   
-  
-   #proxy %>% selectRows(NULL)
  })
  
  
  # save the disease datatable with edit update 
  observeEvent(input$saveDis, {
-   #celldis <- input[["trldis_table_cell_edit"]]
-   #print(celldis)
-  # if (!is.null(celldis)) {
-    # print(editDis())
      tbRec$disUp = tbRec$disRec
-     #print(tbRec$disUp)
-  # }else{
-     #tbRec$disRec[celldis$row, celldis$col] <- celldis$value
-  #   tbRec$disUp <- tbRec$disRec
-    # tbRec$disRec[celldis$row, celldis$col] <- celldis$value
-  # }
-  
-  
-   #df(newdf)
+   
  })
  
  
@@ -544,7 +542,7 @@ server <- function(input, output,session) {
    #print(input$trlinfo_table)
    #infoDis = input$trlinfo_table$value
      infoDis <-  as_tibble(tbRec$infoUp)
-     
+     docDis <- as_tibble(tbRec$docUp)
      
      # # save the arm info from query output
      # armTb <- left_join(disAd$armDf, disAd$Armpt1Tb_out, by = "cohortlabel")
@@ -619,9 +617,9 @@ server <- function(input, output,session) {
                       #   tagvar = tags$a(href=input$doc,)
                       #   docs = tagvar
                       # },
-                      docs = infoDis$Documentation,
-                     locations = infoDis$location,
-                     doclastupdate = input$dt,
+                      docs = docDis$Documentation,
+                     locations = docDis$location,
+                     doclastupdate = docDis$docUpdate,
                       min_age = infoDis$MinAge,
                       gender = infoDis$Gender,
                       link = infoDis$Link

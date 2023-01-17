@@ -19,22 +19,47 @@ fstUI <<- fluidPage(
   column(4)
   ),
   br(),
+  br(),
+  
   
   wellPanel(
-    "Disease Stage table",
-    br(),
-    br(),
-    textOutput("disSum"),
+    fluidRow(
+      h5(strong("Document table")),
+      column(4,
+             h5(strong("Once Information verified Click on SAVE: " ))
+      ),
+      column(4,
+             actionButton(inputId = "saveDoc",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md")),
+      column(4),
+      br(),
+      DTOutput('trldoc_table'),
+      br()
+    )),
+
+br(),
+br(),
+
+
+  
+  wellPanel(
+    fluidRow(
+   h5(strong("Disease Stage table")),
+   column(4,
+          h5(strong("Once Information verified Click on SAVE: " ))
+          ),
+   column(4,
+          actionButton(inputId = "saveDis",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md")),
+   column(4),
+   br(),
+    textInput("disSum","Overall Disease Summary: ",width = "300px"),
     br(),
     DTOutput('trldis_table'),
     br(),
     column(4,
-    actionButton(inputId = "saveDis",label = "Save Edit",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
-    column(4,
     actionButton(inputId = "disAdd",label = "New Entry",icon = shiny::icon("plus"),class = "btn-success",size = "md")),
     column(4)
     ))
-)
+))
 
 
 secdUI <<- fluidRow(

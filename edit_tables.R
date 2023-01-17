@@ -3,8 +3,10 @@ library(shinyWidgets)
 tbRec <- reactiveValues(
   picktb = tibble(), #Side table selection
   currTb = tibble(), # current  tibble 
-  infoTb = tibble(),
+  infoTb = tibble(), # Meta Information
   infoUp = tibble(), # updated information tibble
+  docRec = tibble(), # Document 
+  docUp = tibble(), # updated Document tibble
   disRec = tibble(), # disease  
   disUp = tibble(),
   armRec = tibble(), # cohort 
