@@ -355,7 +355,7 @@ server <- function(input, output,session) {
  # Display editable table - "Document Information table"
  
  output$trldoc_table = renderDataTable({
-   tbRec$docRec = tbRec$currTb  %>% select( Documentation ) %>% mutate(location = "NA", docUpdate = "2023-MM-DD")
+   tbRec$docRec = tbRec$currTb  %>% select( Documentation ) %>% mutate(location = "Sioux Falls SD", docUpdate = "2023-MM-DD")
   
    datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
