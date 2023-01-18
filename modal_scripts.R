@@ -18,7 +18,7 @@ modal_dise <- function( OgTis, inExIn, stageIn) {
           choices = c(nested_list[[2]]),
           multiple = F,
           width = "200px",
-          options = list(liveSearch = TRUE)
+          options = pickerOptions(actionsBox = TRUE, liveSearch = TRUE)
         )
       ),
       div(
@@ -120,7 +120,8 @@ modal_biomarker <- function(armId, cohor, gene1, gene2, typ, var, selec, func) {
           label = "Gene", 
           choices = allgenes$x,
           multiple = F,
-          width = "200px"
+          width = "200px",
+          options = pickerOptions(actionsBox = TRUE, liveSearch = TRUE)
         )
       ),
       
@@ -142,7 +143,8 @@ modal_biomarker <- function(armId, cohor, gene1, gene2, typ, var, selec, func) {
           label = "Variant",
           choices = allVar$x,
           multiple = F,
-          width = "200px"
+          width = "200px",
+          options = pickerOptions(actionsBox = TRUE, liveSearch = TRUE)
         )
       ),
       # 
@@ -165,8 +167,10 @@ modal_biomarker <- function(armId, cohor, gene1, gene2, typ, var, selec, func) {
           choices = allgenes$x,
           multiple = F,
           #selected = NULL,
+          
           #options = list(`actions-box` = TRUE,`live-search` = TRUE,size=10),
-          width = "200px"
+          width = "200px",
+          options = pickerOptions(actionsBox = TRUE, liveSearch = TRUE)
         )
       )
       
