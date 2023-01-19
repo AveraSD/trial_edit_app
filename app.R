@@ -197,7 +197,7 @@ ui <- dashboardPage(
                          column(6,
                                 pickerInput(
                                   inputId = "DocView",
-                                  label = "Refernce Links",
+                                  label = "Reference Links",
                                   choices = list("Tempus" = c("<a href=\"https://therapies.securetempus.com/\">Tempus</a>"),"Caris" = c("<a href=\"https://trialplus.carisls.com/\">Caris</a>"), "Optimal" = c("<a href=\"https://www.optimalresearchportal.com/login/\">Optimal</a>")),
                                   multiple = F,
                                   #options = pickerOptions(actionsBox = TRUE,liveSearch = TRUE),
@@ -241,9 +241,9 @@ server <- function(input, output,session) {
   
   # for copying pasting the values onto the cell of selection 
   output$stage_link <- renderText({input$stageView})
-  output$loca_link <- renderText({paste0("Sioux Fall SD")})
+  output$loca_link <- renderText({paste0("Sioux Falls SD")})
   output$lnot_link <- renderText({input$LnoTView})
-  output$stat_link <- renderText({paste0("open , on hold , closed , coming soon , Not available")})
+  output$stat_link <- renderText({paste0("open, on hold, closed, closing soon, Not available, Recruiting, opening soon, Not Recruiting, Recruiting closing soon ")})
   output$Doc_link <- renderText({input$DocView})
 
   

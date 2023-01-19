@@ -4,9 +4,8 @@ fstUI <<- fluidPage(
   fluidRow(
     shinyjs::useShinyjs(),
   br(),
-  
+  h5(strong("Meta Information Modification Section")),
   wellPanel(
-  h5(strong("This section enables modification for trails Meta information, Disease stage and Conditions")),
   br(),
  h5("Meta Information Table"),
   div(style = "margin-top: 20px;"),
@@ -19,10 +18,9 @@ fstUI <<- fluidPage(
   br(),
   
   ),
-  br(),
-  br(),
-  
-  
+ 
+ # ------------------- #
+ h5(strong("Documentation Modification Section")),
   wellPanel(
     fluidRow(
       h5(strong("Document table")),
@@ -39,10 +37,8 @@ fstUI <<- fluidPage(
     )),
 
 br(),
-br(),
-
-
-  
+# ------------------- #
+h5(strong("Disease with Stage Modification Section")),
   wellPanel(
     fluidRow(
    h5(strong("Disease Stage table")),
@@ -89,7 +85,7 @@ secdUI <<- fluidPage(
     br(),
    
   ),
-  
+  # ------------------- #
   h5(strong("Section enables modification for cohorts Biomarker")),
   wellPanel(
       column(4,
