@@ -288,7 +288,7 @@ server <- function(input, output,session) {
 
        #tbRec$currTb = browse_tbl %>% filter("NCT" == filNCT)
 
-       #print(tbRec$currTb)
+       #print(tbRec$currTb$NCT)
     # }
    return(filNCT)
    })
@@ -306,8 +306,9 @@ server <- function(input, output,session) {
  output$trlinfo_table = renderDataTable({
    tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
                              Phase , StudyType, MinAge,Gender, Link )
+   print(tbRec$infoTb)
    displayTb = t(tbRec$infoTb)
-   datatable(displayTb, colnames = c("Detials"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+   datatable(displayTb, colnames = c("Details"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto")
    })
  
@@ -355,7 +356,7 @@ server <- function(input, output,session) {
  # Display editable table - "Document Information table"
  
  output$trldoc_table = renderDataTable({
-   tbRec$docRec = tbRec$currTb  %>% select( Documentation ) %>% mutate(location = "Sioux Falls SD", docUpdate = "2023-MM-DD")
+   tbRec$docRec = tbRec$currTb  %>% select(Documentation, location, docUpdate) 
   
    datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
@@ -381,8 +382,8 @@ server <- function(input, output,session) {
  
  # Displaying the Disease table 
  output$trldis_table = renderDataTable({
-   tbRec$disRec = tbRec$currTb  %>% select(disease) %>% unnest(disease) %>% mutate(stage = "NA")
-  # print(tbRec$disRec)
+   tbRec$disRec = tbRec$currTb  %>% select(disease) %>% unnest(disease) 
+  #print(tbRec$disRec)
    datatable(isolate(tbRec$disRec), editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 30,dom = 'tip' ), selection = 'single',width = "auto",rownames = F )
  })
@@ -486,7 +487,7 @@ server <- function(input, output,session) {
  # })
  
  
- # update the information on the arm / cohort information 
+ # update the information on the Biomarker information 
  output$trlBio_table = renderDataTable({
    #tbRec$biomRec = tbRec$currTb %>% select(biomarker)  %>% unnest(biomarker) %>% select(biomarker)  %>% unnest(biomarker)
    tbRec$biomRec = tbRec$currTb %>% select(arms) %>% unnest(arms) %>% select(ArmID,biomarker) %>% unnest(biomarker)

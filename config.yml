@@ -3,4 +3,4 @@ default:
   trial_out: "data/trials_edit/"
   pt_data_file: "data/pt/ptdata.tsv"
   docker: "no"
-  storage: "json"
+  storage: "db"
