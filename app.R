@@ -239,6 +239,11 @@ ui <- dashboardPage(
 # Define server logic required to draw a histogram
 server <- function(input, output,session) {
   
+  
+  #adding trigger for automatic refresh of clinical trial data from Mongo database after editing
+ #session$edittb_trigger <- reactiveVal(0)
+  
+  
   # for copying pasting the values onto the cell of selection 
   output$stage_link <- renderText({input$stageView})
   output$loca_link <- renderText({paste0("Sioux Falls SD")})
@@ -640,9 +645,12 @@ server <- function(input, output,session) {
    #disAd$allbrws = disAd$allbrws %>% dplyr::bind_rows(disAd$rsdf) 
    alert("Submitted successfully!")
    refresh()
+ #  browse_tbl <<- loadDbData()
  })
  
- 
+# browse_tbl <- reactivePoll(10000, session,
+#                            checkFunc = editDbData,
+ #                           valueFunc = loadDbData)
 }
 
 # Run the application 

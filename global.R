@@ -57,7 +57,7 @@ if (storage == "db") {
     
     
   }
-  
+  #session$edittb_trigger()
   browse_tbl <<- loadDbData()
 }
 
