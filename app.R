@@ -306,7 +306,7 @@ server <- function(input, output,session) {
  output$trlinfo_table = renderDataTable({
    tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
                              Phase , StudyType, MinAge,Gender, Link )
-   print(tbRec$infoTb)
+   #print(tbRec$infoTb)
    displayTb = t(tbRec$infoTb)
    datatable(displayTb, colnames = c("Details"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto")
@@ -635,8 +635,8 @@ server <- function(input, output,session) {
      
      #"<a href=\\", input$doc, "\\", "target=\"_blank\">site-documentation</a>"
      tbRec$rsdf <- disBrw2
-     
-   outSubmit()
+     editDbData()
+   #outSubmit()
    #disAd$allbrws = disAd$allbrws %>% dplyr::bind_rows(disAd$rsdf) 
    alert("Submitted successfully!")
    refresh()

@@ -93,15 +93,15 @@ parseTrials <- function(jsonfile) {
 #function to load json documents from Mongo database 
 loadDbData <- function() {
   
-  db <- mongolite::mongo(collection = "ClinicalTrials", 
-                         db = "aci", 
-                         url = db_url)
-  
-  #df1 <- db$find('{}')
-  #df2<- jsonlite::toJSON(df1) 
-  db_tbl <- db$aggregate()[,2:4] %>%
-    
-    unnest(cols = c(info, disease, query))
+  # db <- mongolite::mongo(collection = "ClinicalTrials", 
+  #                        db = "aci", 
+  #                        url = db_url)
+  # 
+  # #df1 <- db$find('{}')
+  # #df2<- jsonlite::toJSON(df1) 
+  # db_tbl <- db$aggregate()[,2:4] %>%
+  #   
+  #   unnest(cols = c(info, disease, query))
   
   
   db_tbl <- db_tbl %>%  rename(
@@ -164,6 +164,120 @@ loadDbData <- function() {
   return(db_tbl)
   
 }
+
+#after editing trials after submit is clicked
+
+
+editDbData <- function() {
+  
+  
+  
+  #outSubmitnew <- function() {
+    #tr2 <- isolate(disAd$resultsdf)
+    # print(tr)
+    tr2 <- isolate(tbRec$rsdf)
+    #print(tr2)
+    #print(tr2$info$NCT)
+    
+    #NCT variable
+       jsonselected<-tr2 %>% unnest(c(info)) %>% select(NCT)%>% as.character()
+       print(jsonselected)
+       db$remove(query=paste0('{"info.NCT": "',jsonselected,'" }'),just_one = TRUE)
+    outjson <- paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson")
+    
+    
+    #nctselect<- tr2 %>% unnest(c(info, query)) %>% select(NCT)
+    writeLines(tr2 %>% toJSON(pretty = T), outjson)
+   # jsonselected<- tr2 %>% unnest(c(info, query)) %>% select(NCT)
+    #message(paste0("Written to file: ", outjson))
+    #return(nctselect)
+ # }
+  
+    
+    
+    
+  
+  
+  #connecting to mongo
+  # db <- mongolite::mongo(collection = "ClinicalTrials", 
+  #                        db = "aci", 
+  #                        url = db_url)
+  
+  
+       
+       
+ 
+  
+  
+  
+  
+  #remove and insert
+  #db$remove(query='{"info.NCT":"NCT02428712"}', just_one = TRUE)<<<< example
+  
+ # db$remove(query='{"info.NCT": nctselected()}', just_one = TRUE)
+  
+  json_data_file <- do.call(rbind,
+  lapply(paste(readLines(outjson, warn=FALSE),
+               collapse=""),
+         jsonlite::fromJSON))
+  db$insert(as.data.frame(json_data_file))
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # tr2 <- isolate(tbRec$rsdf)
+  # #print(tr2)
+  # 
+  # outjson <- paste0(here(trial_out), 
+  #                   paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
+  # writeLines(tr2 %>% toJSON(pretty = T), outjson)
+  #jsonselected<- tr2 %>% unnest(c(info, query)) %>% select(NCT)
+  
+  
+  #db_tbl <- db$aggregate()[,2:4] %>% unnest(cols = c(info, disease, query))
+  #db$remove(query='{"info.NCT":"NCT02428712"}', just_one = TRUE) <<< works 
+  
+  #db$remove(list(db_tbl$NCT = nctselect), just_one = TRUE)
+  # tr2 <- isolate(tbRec$rsdf)
+  # #print(tr2)
+  # 
+  # outjson <- paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson")
+  # writeLines(tr2 %>% toJSON(pretty = T), outjson)
+  
+  #json_data_file <- do.call(rbind, 
+                            # lapply(paste(readLines(outjson, warn=FALSE),
+                            #              collapse=""), 
+                            #        jsonlite::fromJSON))
+ # db$insert(as.data.frame(json_data_file))<<<<<< works
+  
+  #db$update(json_data_file) <<< will not work without query
+  
+  
+ # db$insert(outjson)
+  
+  #query = db$find('{"info.NCT":"NCT05503797"}')
+  #query = db$find('{"$info.NCT": {"$eq": [" the NCT that was selected"]}')
+#}
+
+
+#db$find(query='{"info.NCT":"NCT02428712"}')
 
 
 
