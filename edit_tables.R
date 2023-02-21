@@ -175,14 +175,21 @@ editDbData <- function() {
        jsonselected<-tr2 %>% unnest(c(info)) %>% select(NCT)%>% as.character()
        print(jsonselected)
        
-#remove clinical trial    
+       # write out the file to /data/trials
+       outjson <- paste0(here(trialspath), 
+                         paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
+       writeLines(tr2 %>% toJSON(pretty = T), outjson)
+       
+
+       
+       #remove clinical trial    
        
        
-       db$remove(query=paste0('{"info.NCT": "',jsonselected,'" }'),just_one = TRUE)
+      # db$remove(query=paste0('{"info.NCT": "',jsonselected,'" }'),just_one = TRUE)
        
-       outjson <- paste0((trialspath), paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
+       #outjson <- paste0((trialspath), paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
        
-     writeLines(tr2 %>% toJSON(pretty = T), outjson)
+    # writeLines(tr2 %>% toJSON(pretty = T), outjson)
    
   
   
