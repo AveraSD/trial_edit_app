@@ -185,7 +185,7 @@ editDbData <- function() {
        #remove clinical trial    
        
        
-      # db$remove(query=paste0('{"info.NCT": "',jsonselected,'" }'),just_one = TRUE)
+      db$remove(query=paste0('{"info.NCT": "',jsonselected,'" }'),just_one = TRUE)
        
        #outjson <- paste0((trialspath), paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
        
