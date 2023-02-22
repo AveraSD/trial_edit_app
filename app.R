@@ -257,15 +257,15 @@ server <- function(input, output,session) {
    output$trl_table = renderDataTable({
      
      butns_edi <- create_btns_edit(nrow(browse_tbl))
-     tbRec$picktb <- browse_tbl %>% select(NCT) %>%
+     tbRec$picktb <- browse_tbl %>% select(NCT,Protocol) %>%
        rownames_to_column(var = "ArmID") %>% 
        bind_cols(tibble("armadd" = butns_edi)) 
      
     # picktb = browse_tbl %>% select(NCT) %>% mutate( trial_no = row_number())
      
-     datatable(tbRec$picktb[,2:3],
+     datatable(tbRec$picktb[,2:4],
                rownames = FALSE,
-               colnames = c("NCT ID","Action"),
+               colnames = c("NCT ID","Protocol","Action"),
                filter = list(position = 'bottom', clear = FALSE),
                class = "compact stripe row-border nowrap",
                # Escape the HTML in all except 1st column (which has the buttons)
