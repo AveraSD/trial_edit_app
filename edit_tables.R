@@ -67,6 +67,7 @@ parseTrials <- function(jsonfile) {
     Phase = trial$query$phase,
     StudyType = trial$query$type,
     Documentation = trial$query$docs,
+    docUpdate = trial$query$doclastupdate,
     MinAge = if(trial$query$min_age %>% is_empty()) {
       min_age = "Not Available"
     } else{
@@ -77,12 +78,136 @@ parseTrials <- function(jsonfile) {
     
     arms = list(arms = trial$query$arm[[1]]),
     #biomarker = list(trial$query$arm[[1]]$biomarker)
-    biomarker = list(biomarker = bind_cols(arm_groups %>% select(biomarker)))
+    biomarker = list(biomarker = bind_cols(arm_groups %>% select(biomarker))),
     
+    location = trial$query$locations
   )
   return(parsedTrial)
   
 }
+
+
+
+
+
+#function to load json documents from Mongo database 
+loadDbData <- function() {
+  #session$edittb_trigger()
+   db <- mongolite::mongo(collection = "ClinicalTrials", 
+                          db = "aci", 
+                          url = db_url)
+  # 
+  # #df1 <- db$find('{}')
+  # #df2<- jsonlite::toJSON(df1) 
+   db_tbl <- db$aggregate()[,2:4] %>% unnest(cols = c(info, disease, query))
+  
+  
+  db_tbl <- db_tbl %>%  rename(
+    
+    #   %>% rename(
+    # info
+    "NCT" = NCT,
+    "JIT" = jit,
+    "Name" = trial_name,
+    "Protocol" = Protocol_No,
+    
+    # disease
+    "sumDis" = summary,
+
+    # query - general
+    "Title" = title,
+    "Status" = current_status,
+    "StatusDate" = status_verif_date,
+    "LastUpdate" = last_update_date,
+    "HoldStatus" = trial_hold_status,
+    "Sponsor" = sponsor,
+    "Summary" = brief_summary,
+    "Conditions" = conditions,
+    # "Conditions" = conditiions,
+    "location" = locations,
+   "docUpdate" = doclastupdate,
+    "Phase" = phase,
+    "StudyType" = type,
+    "Documentation" = docs,
+    # "InclExclCriteria" = criteria,
+    # "InclExclCriteria" = db_tbl$details[[1]][2],
+    "MinAge" = min_age,
+    "Gender" = gender,
+    "Link" = link,
+   #  "arms" = list(db_tbl$arm[[1]] %>% unnest(biomarker)),
+   # "disease" =  list(disease = db_tbl$details[[1]] %>% select(code) %>% distinct() %>% unlist(code) %>% paste0(collapse = "|"))
+   #"disease" =  db_tbl$details[[1]] %>% select(code)
+  )
+  db_tbl = db_tbl %>% mutate(disease = db_tbl$details)
+  db_tbl = db_tbl %>% mutate(arms = db_tbl$arm)
+ # db_tbl = db_tbl %>% mutate(biomarker = db_tbl$arm$biomarker)
+  #db_tbl$arms = list(arms = db_tbl %>% select(arm) )
+  
+  #db_tbl$biomarker <- list(biomarker = db_tbl$arm[[1]]$biomarker)
+    #                        %>% bind_rows() %>%
+    # select(summary) %>% distinct() %>%
+    # unlist() %>%
+    # na.omit() %>%
+    # paste0(collapse = "|"))
+  
+  
+ # disease = list(disease = db_tbl$details[[1]] %>% select(code) %>% distinct() %>% unlist(code) %>% paste0(collapse = "|"))
+  #disease =  db_tbl$details[[1]]
+  
+  # biomarker <- db_tbl$arm[[1]]$biomarker %>% bind_rows() %>%
+  #   select(summary) %>% distinct() %>%
+  #   unlist() %>%
+  #   na.omit() %>%
+  #   paste0(collapse = "|")
+  return(db_tbl)
+  
+}
+
+#after editing trials after submit is clicked
+
+
+editDbData <- function() {
+  
+  tr2 <- isolate(tbRec$rsdf)
+    
+    
+    #NCT variable
+       jsonselected<-tr2 %>% unnest(c(info)) %>% select(NCT)%>% as.character()
+       print(jsonselected)
+       
+       # write out the file to /data/trials
+       outjson <- paste0(here(trialspath), 
+                         paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
+       writeLines(tr2 %>% toJSON(pretty = T), outjson)
+       
+
+       
+       #remove clinical trial    
+       
+       
+      db$remove(query=paste0('{"info.NCT": "',jsonselected,'" }'),just_one = TRUE)
+       
+       #outjson <- paste0((trialspath), paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
+       
+    # writeLines(tr2 %>% toJSON(pretty = T), outjson)
+   
+  
+  
+ # db$remove(query='{"info.NCT": nctselected()}', just_one = TRUE)
+  
+  json_data_file <- do.call(rbind,
+  lapply(paste(readLines(outjson, warn=FALSE),
+               collapse=""),
+         jsonlite::fromJSON))
+  db$insert(as.data.frame(json_data_file))
+  
+   db_tbl <- db$aggregate()[,2:4] %>% unnest(cols = c(info, disease, query))
+   browse_tbl <<- loadDbData()
+  
+  #session$edittb_trigger(session$edittb_trigger() + 1)
+  
+}
+
 
 # function to write trial.ndjson after final Submit button is clicked
 

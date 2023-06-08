@@ -239,6 +239,11 @@ ui <- dashboardPage(
 # Define server logic required to draw a histogram
 server <- function(input, output,session) {
   
+  
+  #adding trigger for automatic refresh of clinical trial data from Mongo database after editing
+ #session$edittb_trigger <- reactiveVal(0)
+  
+  
   # for copying pasting the values onto the cell of selection 
   output$stage_link <- renderText({input$stageView})
   output$loca_link <- renderText({paste0("Sioux Falls SD")})
@@ -252,15 +257,15 @@ server <- function(input, output,session) {
    output$trl_table = renderDataTable({
      
      butns_edi <- create_btns_edit(nrow(browse_tbl))
-     tbRec$picktb <- browse_tbl %>% select(NCT) %>%
+     tbRec$picktb <- browse_tbl %>% select(NCT,Protocol) %>%
        rownames_to_column(var = "ArmID") %>% 
        bind_cols(tibble("armadd" = butns_edi)) 
      
     # picktb = browse_tbl %>% select(NCT) %>% mutate( trial_no = row_number())
      
-     datatable(tbRec$picktb[,2:3],
+     datatable(tbRec$picktb[,2:4],
                rownames = FALSE,
-               colnames = c("NCT ID","Action"),
+               colnames = c("NCT ID","Protocol","Action"),
                filter = list(position = 'bottom', clear = FALSE),
                class = "compact stripe row-border nowrap",
                # Escape the HTML in all except 1st column (which has the buttons)
@@ -288,7 +293,7 @@ server <- function(input, output,session) {
 
        #tbRec$currTb = browse_tbl %>% filter("NCT" == filNCT)
 
-       #print(tbRec$currTb)
+       #print(tbRec$currTb$NCT)
     # }
    return(filNCT)
    })
@@ -306,8 +311,9 @@ server <- function(input, output,session) {
  output$trlinfo_table = renderDataTable({
    tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
                              Phase , StudyType, MinAge,Gender, Link )
+   #print(tbRec$infoTb)
    displayTb = t(tbRec$infoTb)
-   datatable(displayTb, colnames = c("Detials"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
+   datatable(displayTb, colnames = c("Details"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto")
    })
  
@@ -355,7 +361,7 @@ server <- function(input, output,session) {
  # Display editable table - "Document Information table"
  
  output$trldoc_table = renderDataTable({
-   tbRec$docRec = tbRec$currTb  %>% select( Documentation ) %>% mutate(location = "Sioux Falls SD", docUpdate = "2023-MM-DD")
+   tbRec$docRec = tbRec$currTb  %>% select(Documentation, location, docUpdate) 
   
    datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
@@ -381,8 +387,8 @@ server <- function(input, output,session) {
  
  # Displaying the Disease table 
  output$trldis_table = renderDataTable({
-   tbRec$disRec = tbRec$currTb  %>% select(disease) %>% unnest(disease) %>% mutate(stage = "NA")
-  # print(tbRec$disRec)
+   tbRec$disRec = tbRec$currTb  %>% select(disease) %>% unnest(disease) 
+  #print(tbRec$disRec)
    datatable(isolate(tbRec$disRec), editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 30,dom = 'tip' ), selection = 'single',width = "auto",rownames = F )
  })
@@ -486,7 +492,7 @@ server <- function(input, output,session) {
  # })
  
  
- # update the information on the arm / cohort information 
+ # update the information on the Biomarker information 
  output$trlBio_table = renderDataTable({
    #tbRec$biomRec = tbRec$currTb %>% select(biomarker)  %>% unnest(biomarker) %>% select(biomarker)  %>% unnest(biomarker)
    tbRec$biomRec = tbRec$currTb %>% select(arms) %>% unnest(arms) %>% select(ArmID,biomarker) %>% unnest(biomarker)
@@ -634,14 +640,17 @@ server <- function(input, output,session) {
      
      #"<a href=\\", input$doc, "\\", "target=\"_blank\">site-documentation</a>"
      tbRec$rsdf <- disBrw2
-     
-   outSubmit()
+     editDbData()
+   #outSubmit()
    #disAd$allbrws = disAd$allbrws %>% dplyr::bind_rows(disAd$rsdf) 
    alert("Submitted successfully!")
    refresh()
+ #  browse_tbl <<- loadDbData()
  })
  
- 
+# browse_tbl <- reactivePoll(10000, session,
+#                            checkFunc = editDbData,
+ #                           valueFunc = loadDbData)
 }
 
 # Run the application 

@@ -12,12 +12,6 @@ trial_data_dir <- if_else(t_d_d %>% fs::is_absolute_path(), t_d_d, t_d_d %>% her
 trialspath <- trial_data_dir
 
 
-# get path to trials directory
-t_o <- config::get("trial_out")
-
-trial_out <- if_else(t_o %>% fs::is_absolute_path(), t_o, t_o %>% here())
-#trialspath <- trial_data_dir
-
 ## trial data storage format
 storage <- config::get("storage")
 
@@ -30,6 +24,11 @@ if (storage == "json") {
   browse_tbl <<- result
 }
 
+
+
+
+
+
 if (storage == "db") {
   # look for active mongod process based on docker status
   docker <- config::get("docker")
@@ -40,8 +39,18 @@ if (storage == "db") {
   
   if (docker == "no") {
     db_url <<- "mongodb://0.0.0.0:27017" 
+    #connection to Mongo database 
+    db <- mongolite::mongo(collection = "ClinicalTrials", 
+                           db = "aci", 
+                           url = db_url)
+    
+    db_tbl <- db$aggregate()[,2:4] %>%
+      
+      unnest(cols = c(info, disease, query))
+    
+    
   }
-  
+  #session$edittb_trigger()
   browse_tbl <<- loadDbData()
 }
 
