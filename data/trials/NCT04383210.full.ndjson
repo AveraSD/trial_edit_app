@@ -2,80 +2,92 @@
   {
     "info": {
       "NCT": "NCT04383210",
-      "Protocol_No": "Not available",
-      "jit": "Tempus",
+      "Protocol_No": "ELVCAP-001-01",
+      "jit": "Caris",
       "trial_name": "Elevation Oncology"
     },
     "disease": {
       "summary": "Recurrent locally-advanced or metastatic solid tumors",
       "details": [
         {
-          "code": "Solid Tumors",
-          "selection": "include"
-        },
-        {
-          "code": "Pancreas (PANCREAS)",
-          "selection": "include"
-        },
-        {
-          "code": "Lung (LUNG)",
-          "selection": "include"
-        },
-        {
-          "code": "Head and Neck (HEAD_NECK)",
-          "selection": "include"
-        },
-        {
-          "code": "Breast (BREAST)",
-          "selection": "include"
-        },
-        {
-          "code": "Kidney (KIDNEY)",
-          "selection": "include"
+          "code": "Bladder Cancer",
+          "selection": "include",
+          "stage": "NA"
         },
         {
           "code": "Bowel (BOWEL)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "NA"
         },
         {
-          "code": "Bladder/Urinary Tract (BLADDER)",
-          "selection": "include"
-        },
-        {
-          "code": "Ovary/Fallopian Tube (OVARY)",
-          "selection": "include"
-        },
-        {
-          "code": "Sarcoma, NOS (SARCNOS)",
-          "selection": "include"
-        },
-        {
-          "code": "Gallbladder Cancer (GBC)",
-          "selection": "include"
-        },
-        {
-          "code": "Intraductal Papillary Neoplasm of the Bile Duct (IPN)",
-          "selection": "include"
-        },
-        {
-          "code": "Esophagus/Stomach (STOMACH)",
-          "selection": "include"
+          "code": "Breast Cancer",
+          "selection": "include",
+          "stage": "NA"
         },
         {
           "code": "Endometrial Carcinoma (UCEC)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Esophagus/Stomach Cancer",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Gallbladder Cancer (GBC)",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Head and Neck Cancer",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Intraductal Papillary Neoplasm of the Bile Duct (IPN)",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Kidney Cancer",
+          "selection": "include",
+          "stage": "NA"
         },
         {
           "code": "Liver (LIVER)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "NA"
         },
         {
-          "code": "Prostate (PROSTATE)",
-          "selection": "include"
+          "code": "Lung Cancer",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Ovarian Cancer",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Pancreatic Cancer",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Prostate Cancer",
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Sarcoma, NOS (SARCNOS)",
+          "selection": "include",
+          "stage": "NA"
         },
         {
           "code": "Solid Tumors",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Recurrent;Metastatic"
         }
       ]
     },
@@ -97,7 +109,7 @@
           "cohortlabel": "Cohort 1",
           "drug": "Seribantumab",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "2",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -117,7 +129,7 @@
           "cohortlabel": "Cohort 2",
           "drug": "Seribantumab",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "2",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -137,7 +149,7 @@
           "cohortlabel": "Cohort 3",
           "drug": "Seribantumab",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "2",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -153,7 +165,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04383210\" target=\"_blank\">NCT04383210<\/a>"

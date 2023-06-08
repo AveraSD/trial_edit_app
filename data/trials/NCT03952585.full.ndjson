@@ -1,0 +1,101 @@
+[
+  {
+    "info": {
+      "NCT": "NCT03952585",
+      "Protocol_No": "NRG-HN005",
+      "jit": "Avera Trials",
+      "trial_name": "NRG-HN005"
+    },
+    "disease": {
+      "summary": "Oropharyngeal Cancer",
+      "details": [
+        {
+          "code": "Oropharynx Squamous Cell Carcinoma (OPHSC)",
+          "selection": "include",
+          "stage": "Early stage"
+        }
+      ]
+    },
+    "query": {
+      "nct": "NCT03952585",
+      "title": "De-intensified Radiation Therapy With Chemotherapy (Cisplatin) or Immunotherapy (Nivolumab) in Treating Patients With Early-Stage, HPV-Positive, Non-Smoking Associated Oropharyngeal Cancer",
+      "current_status": "Suspended",
+      "status_verif_date": "February 2023",
+      "last_update_date": "April 25, 2023",
+      "trial_hold_status": "on hold",
+      "sponsor": "National Cancer Institute (NCI)",
+      "brief_summary": "This phase II/III trial studies how well a reduced dose of radiation therapy works with nivolumab compared to cisplatin in treating patients with human papillomavirus (HPV)-positive oropharyngeal cancer that is early in its growth and may not have spread to other parts of the body (early-stage), and is not associated with smoking. Radiation therapy uses high-energy x-rays to kill tumor cells and shrink tumors. Chemotherapy drugs, such as cisplatin, work in different ways to stop the growth of tumor cells, either by killing the cells, by stopping them from dividing, or by stopping them from spreading. Immunotherapy with monoclonal antibodies, such as nivolumab, may help the body's immune system attack the cancer, and may interfere with the ability of tumor cells to grow and spread. This trial is being done to see if a reduced dose of radiation therapy and nivolumab works as well as standard dose radiation therapy and cisplatin in treating patients with oropharyngeal cancer.",
+      "conditions": "Basaloid Squamous Cell Carcinoma | Clinical Stage I HPV-Mediated (p16-Positive) Oropharyngeal Carcinoma AJCC v8 | Clinical Stage II HPV-Mediated (p16-Positive) Oropharyngeal Carcinoma AJCC v8 | Oropharyngeal Squamous Cell Carcinoma | Papillary Squamous Cell Carcinoma | Pathologic Stage I HPV-Mediated (p16-Positive) Oropharyngeal Carcinoma AJCC v8 | Pathologic Stage II HPV-Mediated (p16-Positive) Oropharyngeal Carcinoma AJCC v8 | Squamous Cell Carcinoma",
+      "type": "Interventional",
+      "phase": "Phase 2 | Phase 3",
+      "arm": [
+        {
+          "ArmID": "1",
+          "cohortlabel": "Arm I (IMRT, IGRT, cisplatin)",
+          "drug": "Cisplatin | Radiation: Image Guided Radiation Therapy | Radiation: Intensity-Modulated Radiation Therapy | Other: Quality-of-Life Assessment | Other: Questionnaire Administration",
+          "arm_type": "Active Comparator",
+          "line_of_therapy": "1",
+          "arm_hold_status": "on hold",
+          "biomarker": [
+            {
+              "cohort": "Arm I (IMRT, IGRT, cisplatin)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "p16",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+	      "summary": "p16 positive"
+            }
+          ]
+        },
+        {
+          "ArmID": "2",
+          "cohortlabel": "Arm II (IMRT, IGRT, cisplatin)",
+          "drug": "Cisplatin | Radiation: Image Guided Radiation Therapy | Radiation: Intensity-Modulated Radiation Therapy | Other: Quality-of-Life Assessment | Other: Questionnaire Administration",
+          "arm_type": "Experimental",
+          "line_of_therapy": "1",
+          "arm_hold_status": "on hold",
+          "biomarker": [
+            {
+              "cohort": "Arm II (IMRT, IGRT, cisplatin)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "p16",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+	      "summary": "p16 positive"
+            }
+          ]
+        },
+        {
+          "ArmID": "3",
+          "cohortlabel": "Arm III (IMRT, IGRT, nivolumab)",
+          "drug": "Radiation: Image Guided Radiation Therapy | Radiation: Intensity-Modulated Radiation Therapy | Nivolumab | Other: Quality-of-Life Assessment | Other: Questionnaire Administration",
+          "arm_type": "Experimental",
+          "line_of_therapy": "1",
+          "arm_hold_status": "on hold",
+          "biomarker": [
+            {
+              "cohort": "Arm III (IMRT, IGRT, nivolumab)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "p16",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "positive",
+	      "summary": "p16 positive"
+            }
+          ]
+        }
+      ],
+      "docs": "<a href=\"https://avera-ereg-prod.forteresearchapps.com/forte-platform-web/login\" target=\"_blank\">eREG<\/a>",
+      "doclastupdate": "2023-05-16",
+      "locations": "Sioux Falls SD",
+      "min_age": "18 Years",
+      "gender": "All",
+      "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03952585\" target=\"_blank\">NCT03952585<\/a>"
+    }
+  }
+]

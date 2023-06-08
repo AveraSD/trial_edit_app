@@ -7,15 +7,25 @@ fstUI <<- fluidPage(
   h5(strong("Meta Information Modification Section")),
   wellPanel(
   br(),
- h5("Meta Information Table"),
+ h5("Meta Information Table Part 1"),
   div(style = "margin-top: 20px;"),
  column(4,
         h5(strong("Please Click on Save to verified information")) ),
  column(4,
-        actionButton(inputId = "saveInfo",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md") ),
+        actionButton(inputId = "saveInfo1",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md") ),
  column(4),
-  DTOutput('trlinfo_table',width = "100%"),
+  DTOutput('trlinfo1_table',width = "100%"),
   br(),
+ 
+ h5("Meta Information Table Part 2 (Clinicaltrial.gov)"),
+ div(style = "margin-top: 20px;"),
+ column(4,
+        h5(strong("Please Click on Save to verified information")) ),
+ column(4,
+        actionButton(inputId = "saveInfo2",label = "Save Verfiy",icon = shiny::icon("file"),class = "btn-danger",size = "md") ),
+ column(4),
+ DTOutput('trlinfo2_table',width = "100%"),
+ br(),
   
   ),
  

@@ -2,20 +2,22 @@
   {
     "info": {
       "NCT": "NCT04589845",
-      "Protocol_No": "Roche Tapistry",
-      "jit": "Tempus & Optimal",
-      "trial_name": "Roche TAPISTRY (BO41932)"
+      "Protocol_No": "BO41932",
+      "jit": "Optimal",
+      "trial_name": "Roche TAPISTRY"
     },
     "disease": {
       "summary": "locally advanced or metastatic solid tumors determined to harbor specific oncogenic genomic alterations or who are tumor mutational burden (TMB)-high some with excluded NSCLC",
       "details": [
         {
-          "code": "Solid Tumors",
-          "selection": "include"
+          "code": "Non-Small Cell Lung Cancer (NSCLC)",
+          "selection": "exclude",
+          "stage": "NA"
         },
         {
-          "code": "Non-Small Cell Lung Cancer (NSCLC)",
-          "selection": "exclude"
+          "code": "Solid Tumors",
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         }
       ]
     },
@@ -89,6 +91,36 @@
               "Selection": "include",
               "Function": "positive",
               "summary": "ALK Fusion positive  "
+            },
+            {
+              "cohort": "Cohort C: ALK fusion-positive tumors",
+              "Gene": "ALK",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "I1171N",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "ALK I1171N Mutation"
+            },
+{
+              "cohort": "Cohort C: ALK fusion-positive tumors",
+              "Gene": "ALK",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "I1171S",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "ALK I1171S Mutation"
+            },
+            {
+              "cohort": "Cohort C: ALK fusion-positive tumors",
+              "Gene": "ALK",
+              "Gene2": "Not available",
+              "Type": "Mutation",
+              "Variant": "G1202R",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "ALK G1202R Mutation"
             }
           ]
         },
@@ -98,7 +130,7 @@
           "drug": "Atezolizumab",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "open",
+          "arm_hold_status": "closed",
           "biomarker": [
             {
               "cohort": "Cohort D: TMB-high tumors",
@@ -128,7 +160,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "positive",
-              "summary": ""
+              "summary": "AKT1 Mutation Positive "
             },
             {
               "cohort": "Cohort E: AKT1/2/3 mutant-positive tumors",
@@ -138,7 +170,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "positive",
-              "summary": ""
+              "summary": "AKT2 Mutation Positive "
             },
             {
               "cohort": "Cohort E: AKT1/2/3 mutant-positive tumors",
@@ -148,7 +180,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "positive",
-              "summary": ""
+              "summary": "AKT3 Mutation Positive "
             }
           ]
         },
@@ -168,7 +200,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "positive",
-              "summary": ""
+              "summary": "HER2 Mutation Positive "
             }
           ]
         },
@@ -188,7 +220,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-              "summary": ""
+              "summary": "MDM2 Amplification "
             },
             {
               "cohort": "Cohort G: MDM2-amplified, TP53 wild-type tumors",
@@ -198,7 +230,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-              "summary": ""
+              "summary": "TP53 Wild-type"
             }
           ]
         },
@@ -293,7 +325,10 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/Tempus JIT_2022-08-08.docx & Optimal_Working list Optimal Unblinded Study List_FINAL_draft_ 2022.08.11.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
+      "min_age": "Not Available",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04589845\" target=\"_blank\">NCT04589845<\/a>"
     }

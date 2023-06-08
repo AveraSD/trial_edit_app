@@ -2,15 +2,22 @@
   {
     "info": {
       "NCT": "NCT03328026",
+      "Protocol_No": "BRI-ROL-001",
       "jit": "Caris",
-      "trial_name": "BRI-ROL-001"
+      "trial_name": "BriaCell SV-BR-1-GM regimen"
     },
     "disease": {
       "summary": "Breastcancer, Breast Neoplasm, Metastatic Breast Cancer",
       "details": [
         {
+          "code": "Breast Cancer",
+          "selection": "include",
+          "stage": "Recurrent;Metastatic"
+        },
+        {
           "code": "Breast Neoplasm, NOS (BNNOS)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Recurrent;Metastatic"
         }
       ]
     },
@@ -32,7 +39,7 @@
           "cohortlabel": "SV-BR-1-GM, retifanlimab combination original sequence",
           "drug": "SV-BR-1-GM | Low dose cyclophosphamide | Interferon Inoculation | retifanlimab",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "2+",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -102,7 +109,7 @@
           "cohortlabel": "SV-BR-1-GM, retifanlimab combination alternative sequence",
           "drug": "SV-BR-1-GM | Low dose cyclophosphamide | Interferon Inoculation | retifanlimab",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "2+",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -168,7 +175,9 @@
           ]
         }
       ],
-      "docs": "Q:\\MCK\\MOA\\Precision Oncology\\JIT Trials\\CarisStudyList_12-06-2022.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03328026\" target=\"_blank\">NCT03328026<\/a>"

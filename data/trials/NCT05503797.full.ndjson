@@ -2,56 +2,67 @@
   {
     "info": {
       "NCT": "NCT05503797",
+      "Protocol_No": "F8394-201a F8394-201b",
       "jit": "Caris",
-	"Protocol_No": "F8394-201a F8394-201b",
       "trial_name": "Fore Biotherapeutics F8394-201a F8394-201b"
     },
     "disease": {
       "summary": "locally advanced or metastatic solid tumors |  recurrent or progressive primary central nervous system (CNS)  |  recurrent high-grade glioma (HGG)",
       "details": [
         {
-          "code": "CNS/Brain (BRAIN)",
-          "selection": "include"
-        },
-        {
           "code": "Anaplastic Astrocytoma (AASTR)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
         },
         {
           "code": "Anaplastic Oligoastrocytoma (AOAST)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
         },
         {
           "code": "Anaplastic Oligodendroglioma (AODG)",
-          "selection": "include"
-        },
-        {
-          "code": "High-Grade Glioma, NOS (HGGNOS)",
-          "selection": "include"
-        },
-        {
-          "code": "Astrocytoma (ASTR)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
         },
         {
           "code": "Anaplastic Pleomorphic Xanthoastrocytoma (APXA)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
+        },
+        {
+          "code": "Astrocytoma (ASTR)",
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
+        },
+        {
+          "code": "CNS/Brain (BRAIN)",
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
         },
         {
           "code": "Encapsulated Glioma (ENCG)",
-          "selection": "include"
-        },
-        {
-          "code": "Pilocytic Astrocytoma (PAST)",
-          "selection": "include"
-        },
-        {
-          "code": "Gliosarcoma (GSARC)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
         },
         {
           "code": "Glioblastoma (GB)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
+        },
+        {
+          "code": "Gliosarcoma (GSARC)",
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
+        },
+        {
+          "code": "High-Grade Glioma, NOS (HGGNOS)",
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
+        },
+        {
+          "code": "Pilocytic Astrocytoma (PAST)",
+          "selection": "include",
+          "stage": "Unresectable;Advanced Stage;Metastatic"
         }
       ]
     },
@@ -81,7 +92,7 @@
               "Gene": "BRAF",
               "Gene2": "Not available",
               "Type": "Fusion",
-             "Variant": "V600E",
+              "Variant": "V600E",
               "Selection": "include",
               "Function": "Not available",
               "summary": "BRAF Gene Fusion  "
@@ -106,7 +117,6 @@
               "Function": "Not available",
               "summary": "RAS Alteration  "
             }
-
           ]
         },
         {
@@ -150,7 +160,9 @@
           ]
         }
       ],
-      "docs": "https://trialplus.carisls.com ",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-02-08",
       "min_age": "10 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT05503797\" target=\"_blank\">NCT05503797<\/a>"

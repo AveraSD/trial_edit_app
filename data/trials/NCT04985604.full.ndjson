@@ -11,11 +11,13 @@
       "details": [
         {
           "code": "Melanoma (MEL)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "NA"
         },
         {
           "code": "Solid Tumors",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Recurrent;Relapsed/Refractory"
         }
       ]
     },
@@ -48,7 +50,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-	      "summary": "BRAF Fusion"
+              "summary": "BRAF Fusion"
             },
             {
               "cohort": "Arm #1",
@@ -58,7 +60,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-	       "summary": "RAF1 Fusion"
+              "summary": "RAF1 Fusion"
             },
             {
               "cohort": "Arm #1",
@@ -88,7 +90,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-	       "summary": "BRAF Fusion"
+              "summary": "BRAF Fusion"
             },
             {
               "cohort": "Arm #2",
@@ -98,7 +100,7 @@
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-	       "summary": "RAF1 Fusion"
+              "summary": "RAF1 Fusion"
             },
             {
               "cohort": "Arm #2",
@@ -113,7 +115,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-02-08",
       "min_age": "12 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04985604\" target=\"_blank\">NCT04985604<\/a>"

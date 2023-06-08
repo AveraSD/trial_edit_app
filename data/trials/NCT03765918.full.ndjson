@@ -1,0 +1,106 @@
+[
+  {
+    "info": {
+      "NCT": "NCT03765918",
+      "Protocol_No": "MK-3475-689",
+      "jit": "Avera Trials",
+      "trial_name": "Merck Sharp & Dohme LLC"
+    },
+    "disease": {
+      "summary": "Head and Neck Neoplasms",
+      "details": [
+        {
+          "code": "Head and Neck Squamous Cell Carcinoma (HNSC)",
+          "selection": "exclude",
+          "stage": "Stage IV;Advanced Stage;Metastatic"
+        },
+        {
+          "code": "Head and Neck Squamous Cell Carcinoma (HNSC)",
+          "selection": "include",
+          "stage": "Stage III;Stage IV;resectable;Advanced Stage;New diagnosis"
+        }
+      ]
+    },
+    "query": {
+      "nct": "NCT03765918",
+      "title": "Study of Pembrolizumab Given Prior to Surgery and in Combination With Radiotherapy Given Post-surgery for Advanced Head and Neck Squamous Cell Carcinoma (MK-3475-689)",
+      "current_status": "Recruiting",
+      "status_verif_date": "May 2023",
+      "last_update_date": "May 12, 2023",
+      "trial_hold_status": "open",
+      "sponsor": "Merck Sharp & Dohme LLC",
+      "brief_summary": "This is a randomized, active-controlled, open-label study of pembrolizumab (Pembro) given prior to surgery and pembrolizumab in combination with standard of care radiotherapy (with or without cisplatin), as post-surgical therapy in treatment naïve participants with newly diagnosed Stage III/IVA, resectable, locoregionally advanced, head and neck squamous cell carcinoma (LA-HNSCC). Efficacy outcomes will be stratified by programmed cell death ligand 1 (PD-L1) combined positive score (CPS) status. The primary hypothesis is that pembrolizumab given before surgery and after surgery in combination with radiotherapy (with or without cisplatin) improves major pathological response and event-free survival compared to radiotherapy (with or without cisplatin) given after surgery alone.",
+      "conditions": "Head and Neck Neoplasms",
+      "type": "Interventional",
+      "phase": "Phase 3",
+      "arm": [
+        {
+          "ArmID": "1",
+          "cohortlabel": "Pembro Neoadjuvant+Pembro SOC Adjuvant",
+          "drug": "Pembrolizumab 200 mg | Radiation: Radiotherapy 60 Gray/day | Radiation: Radiotherapy 66 Gray/day | Radiation: Radiotherapy 70 Gray/day | Cisplatin 100 mg/m^2",
+          "arm_type": "Experimental",
+          "line_of_therapy": "1",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Pembro Neoadjuvant+Pembro SOC Adjuvant",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PD-L1",
+              "Variant": "Not available",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "PD-L1 "
+            },
+	    {
+              "cohort": "Pembro Neoadjuvant+Pembro SOC Adjuvant",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PD-L2",
+              "Variant": "Not available",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "PD-L1 "
+            }
+          ]
+        },
+        {
+          "ArmID": "2",
+          "cohortlabel": "No Neoadjuvant+SOC Adjuvant",
+          "drug": "Radiation: Radiotherapy 60 Gray/day | Radiation: Radiotherapy 66 Gray/day | Radiation: Radiotherapy 70 Gray/day | Cisplatin 100 mg/m^2 | NA",
+          "arm_type": "Active Comparator",
+          "line_of_therapy": "1",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "No Neoadjuvant+SOC Adjuvant",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PD-L1",
+              "Variant": "Not available",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "PD-L1 "
+            },
+	    {
+              "cohort": "No Neoadjuvant+SOC Adjuvant",
+              "Gene": "Not available",
+              "Gene2": "Not available",
+              "Type": "PD-L2",
+              "Variant": "Not available",
+              "Selection": "exclude",
+              "Function": "Not available",
+              "summary": "PD-L2 "
+            }
+          ]
+        }
+      ],
+      "docs": "<a href=\"https://avera-ereg-prod.forteresearchapps.com/forte-platform-web/login\" target=\"_blank\">eREG<\/a>",
+      "doclastupdate": "2023-05-15",
+      "locations": "Sioux Falls SD",
+      "min_age": "18 Years",
+      "gender": "All",
+      "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03765918\" target=\"_blank\">NCT03765918<\/a>"
+    }
+  }
+]

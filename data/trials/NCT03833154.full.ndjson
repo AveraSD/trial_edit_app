@@ -4,14 +4,15 @@
       "NCT": "NCT03833154",
       "Protocol_No": "D9103C00001",
       "jit": "Tempus",
-      "trial_name": "AstraZeneca PACIFIC-4 (D9103C00001)"
+      "trial_name": "AstraZeneca PACIFIC-4 "
     },
     "disease": {
       "summary": "Radiation Therapy in Early Stage Unresected Non-small Cell Lung Cancer (NSCLC)  | Unresected NSCLC Harboring an EGFR Mutation  ",
       "details": [
         {
           "code": "Non-Small Cell Lung Cancer (NSCLC)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Stage I;Stage II;Un-resectable"
         }
       ]
     },
@@ -99,7 +100,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/Tempus JIT_2022-08-08.docx",
+      "docs": "<a href=\"https://therapies.securetempus.com/\" target=\"_blank\">Tempus<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03833154\" target=\"_blank\">NCT03833154<\/a>"

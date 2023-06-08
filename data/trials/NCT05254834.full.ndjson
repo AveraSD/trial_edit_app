@@ -1,0 +1,82 @@
+[
+  {
+    "info": {
+      "NCT": "NCT05254834",
+      "Protocol_No": "FRNM-008",
+      "jit": "Avera Trials",
+      "trial_name": "Freenome Vallania"
+    },
+    "disease": {
+      "summary": "All Solid Tumors",
+      "details": [
+        {
+          "code": "Solid Tumors",
+          "selection": "include",
+          "stage": "New diagnosis"
+        }
+      ]
+    },
+    "query": {
+      "nct": "NCT05254834",
+      "title": "The Vallania Study: A Case Control Study for the Development of Multiomics Blood Tests for Cancer Screening",
+      "current_status": "Recruiting",
+      "status_verif_date": "February 2022",
+      "last_update_date": "April 2023",
+      "trial_hold_status": "open",
+      "sponsor": "Freenome Holdings Inc.",
+      "brief_summary": "This is an open-label, phase I/II double arm study of the SV-BR-1-GM regimen in combination with retifanlimab in patients with metastatic or locally recurrent breast cancer who have failed standard therapy.Patients will receive the SV-BR-1-GM regimen with combination immunotherapy. There will be an initial evaluation of the combination of the SV-BR-1-GM regimen with retifanlimab every 3 weeks. If this is found to be safe and well tolerated in a cohort of at least 12 patients (dose-limiting toxicities (DLTs) in less than 30% of the patients evaluated), then an expansion cohort of up to 24 patients will be treated with that combination. These will be randomized to two regimens differing in the timing of checkpoint inhibitor administration.",
+      "conditions":"Solid Tumors",
+      "type": "Observational",
+      "phase": "Prospective Case-Control",
+      "arm": [
+        {
+          "ArmID": "1",
+          "cohortlabel": "Non-Cancer Group",
+          "drug": "Not applicable",
+          "arm_type": "Control",
+          "line_of_therapy": "Not applicable",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+              "cohort": "Non-Cancer Group",
+              "Gene": "Not applicable",
+              "Gene2": "Not applicable",
+              "Type": "Not applicable",
+              "Variant": "Not applicable",
+              "Selection": "Not applicable",
+              "Function": "Not applicable",
+              "summary": "absent"
+            }
+          ]
+        },
+        {
+          "ArmID": "2",
+          "cohortlabel": "Cancer Group",
+          "drug": "Not applicable",
+          "arm_type": "Case",
+          "line_of_therapy": "Not applicable",
+          "arm_hold_status": "open",
+          "biomarker": [
+            {
+		"cohort": "Cancer Group",
+              "Gene": "Not applicable",
+              "Gene2": "Not applicable",
+              "Type": "Not applicable",
+              "Variant": "Not applicable",
+              "Selection": "Not applicable",
+              "Function": "Not applicable",
+              "summary": "absent" 
+	    }
+		
+          ]
+        }
+      ],
+      "docs": "<a href=\"https://avera-ereg-prod.forteresearchapps.com/ereg-web/protocols/2922/section-6613\" target=\"_blank\">eREG<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-05-17",
+      "min_age": "30 Years",
+      "gender": "All",
+      "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT05254834\" target=\"_blank\">NCT05254834<\/a>"
+    }
+  }
+]
