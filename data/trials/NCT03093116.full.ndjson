@@ -3,19 +3,21 @@
     "info": {
       "NCT": "NCT03093116",
       "Protocol_No": "TPX-0005-01",
-      "jit": "Caris",
-      "trial_name": "Turning Point Therapeutics, Inc. TPX-0005-01"
+      "jit": "Tempus",
+      "trial_name": "Turning Point Therapeutics TRIDENT-1"
     },
     "disease": {
       "summary": "Locally Advanced or Metastatic Solid Tumors including Non Small Cell Lung Cancer",
       "details": [
         {
-          "code": "Solid Tumors",
-          "selection": "include"
+          "code": "Non-Small Cell Lung Cancer (NSCLC)",
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         },
         {
-          "code": "Non-Small Cell Lung Cancer (NSCLC)",
-          "selection": "include"
+          "code": "Solid Tumors",
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         }
       ]
     },
@@ -37,7 +39,7 @@
           "cohortlabel": "Repotrectinib (TPX-0005)",
           "drug": "Oral repotrectinib (TPX-0005)",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1;2;3+",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -93,7 +95,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://therapies.securetempus.com/\" target=\"_blank\">Tempus<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "12 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03093116\" target=\"_blank\">NCT03093116<\/a>"

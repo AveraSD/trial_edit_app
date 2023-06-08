@@ -4,26 +4,30 @@
       "NCT": "NCT03947385",
       "Protocol_No": "IDE196-001",
       "jit": "Caris",
-      "trial_name": "IDEAYA BioSciences IDE196-001"
+      "trial_name": "IDEAYA BioSciences "
     },
     "disease": {
       "summary": "Solid Tumors, Metastatic Uveal Melanoma, Cutaneous Melanoma, Colorectal Cancer",
       "details": [
         {
-          "code": "Uveal Melanoma (UM)",
-          "selection": "include"
+          "code": "Colorectal Adenocarcinoma (COADREAD)",
+          "selection": "include",
+          "stage": "NA"
         },
         {
           "code": "Cutaneous Melanoma (SKCM)",
-          "selection": "include"
-        },
-        {
-          "code": "Colorectal Adenocarcinoma (COADREAD)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage"
         },
         {
           "code": "Solid Tumors",
-          "selection": "include"
+          "selection": "include",
+          "stage": "NA"
+        },
+        {
+          "code": "Uveal Melanoma (UM)",
+          "selection": "include",
+          "stage": "Metastatic"
         }
       ]
     },
@@ -46,7 +50,7 @@
           "drug": "IDE196 | NA",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "open",
+          "arm_hold_status": "close",
           "biomarker": [
             {}
           ]
@@ -86,7 +90,8 @@
               "Type": "Fusion",
               "Variant": "Not available",
               "Selection": "include",
-              "Function": "Not available"
+              "Function": "Not available",
+              "summary": "PRKC Fusion"
             }
           ]
         },
@@ -96,7 +101,7 @@
           "drug": "IDE196 | Binimetinib",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "open",
+          "arm_hold_status": "close",
           "biomarker": [
             {}
           ]
@@ -136,7 +141,8 @@
               "Type": "Fusion",
               "Variant": "Not available",
               "Selection": "include",
-              "Function": "Not available"
+              "Function": "Not available",
+              "summary": "PRKC Fusion"
             }
           ]
         },
@@ -146,7 +152,7 @@
           "drug": "IDE196 | Crizotinib",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "open",
+          "arm_hold_status": "close",
           "biomarker": [
             {}
           ]
@@ -186,7 +192,8 @@
               "Type": "Fusion",
               "Variant": "Not available",
               "Selection": "include",
-              "Function": "Not available"
+              "Function": "Not available",
+              "summary": "PRKC Fusion"
             }
           ]
         },
@@ -196,13 +203,15 @@
           "drug": "IDE196 | NA",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "open",
+          "arm_hold_status": "close",
           "biomarker": [
             {}
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03947385\" target=\"_blank\">NCT03947385<\/a>"

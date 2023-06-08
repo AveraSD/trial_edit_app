@@ -3,15 +3,36 @@
     "info": {
       "NCT": "NCT03785249",
       "Protocol_No": "849-001",
-      "jit": "Caris",
-      "trial_name": "Mirati Therapeutics"
+      "jit": "Tempus, Caris",
+      "trial_name": "Mirati Therapeutics KRYSTAL-1"
     },
     "disease": {
       "summary": "Advanced, metastatic solid tumors with KRAS G12C mutation",
       "details": [
         {
+          "code": "Colorectal Cancer",
+          "selection": "include",
+          "stage": "Advanced Stage"
+        },
+        {
+          "code": "Lung Cancer, NOS",
+          "selection": "include",
+          "stage": "Advanced Stage"
+        },
+        {
+          "code": "Non-Small Cell Lung Cancer (NSCLC)",
+          "selection": "include",
+          "stage": "Advanced Stage"
+        },
+        {
+          "code": "Pancreatic Adenocarcinoma (PAAD)",
+          "selection": "include",
+          "stage": "Advanced Stage"
+        },
+        {
           "code": "Solid Tumors",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage"
         }
       ]
     },
@@ -124,7 +145,7 @@
           "drug": "MRTX849 | Cetuximab",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "open",
+          "arm_hold_status": "closed",
           "biomarker": [
             {
               "cohort": "Pilot Phase 1b Combination with Cetuximab",
@@ -219,7 +240,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT03785249\" target=\"_blank\">NCT03785249<\/a>"

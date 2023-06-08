@@ -2,7 +2,7 @@
   {
     "info": {
       "NCT": "NCT04488003",
-	"Protocol_No": "BVD-523-ABC",
+      "Protocol_No": "BVD-523-ABC",
       "jit": "Not JIT",
       "trial_name": "BioMed Valley Discoveries BVD-523-ABC"
     },
@@ -10,38 +10,44 @@
       "summary": "Advanced Solid Tumor | Colorectal Cancer CRC | Non Small Cell Lung | Melanoma | Head and Neck | Brain",
       "details": [
         {
-          "code": "Solid Tumors",
-          "selection": "include"
+          "code": "CNS/Brain (BRAIN)",
+          "selection": "include",
+          "stage": "Advanced Stage"
         },
         {
           "code": "Colorectal Adenocarcinoma (COADREAD)",
-          "selection": "include"
-        },
-        {
-          "code": "CNS/Brain (BRAIN)",
-          "selection": "include"
-        },
-        {
-          "code": "Melanoma (MEL)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage"
         },
         {
           "code": "Head and Neck (HEAD_NECK)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage"
+        },
+        {
+          "code": "Melanoma (MEL)",
+          "selection": "include",
+          "stage": "Advanced Stage"
         },
         {
           "code": "Non-Small Cell Lung Cancer (NSCLC)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage"
+        },
+        {
+          "code": "Solid Tumors",
+          "selection": "include",
+          "stage": "Advanced Stage"
         }
       ]
     },
     "query": {
       "nct": "NCT04488003",
       "title": "Study of Ulixertinib for Patients With Advanced Malignancies Harboring MEK or Atypical BRAF Alterations",
-      "current_status": "Recruiting",
+      "current_status": "Not Recruiting",
       "status_verif_date": "August 2022",
       "last_update_date": "August 1, 2022",
-      "trial_hold_status": "open",
+      "trial_hold_status": "closed",
       "sponsor": "BioMed Valley Discoveries, Inc",
       "brief_summary": "This BVD-523-ABC study builds on the safety and clinical activity experience of previous studies that have evaluated ulixertinib as a novel targeted cancer treatment in cohorts of patients with specific genetic alterations and tumor histologies that result in aberrant MAPK pathway signaling. Early clinical data have demonstrated anti-tumor activity with ulixertinib treatment and have identified specific groups of patients for whom additional development is warranted.",
       "conditions": "Advanced Solid Tumor | BRAF Gene Mutation | BRAF Gene Alteration | MEK Mutation | MEK Alteration | MAP2K1 Gene Mutation | MAP2K1 Gene Alteration | MAP2K2 Gene Mutation | MAP2K2 Gene Alteration",
@@ -53,8 +59,8 @@
           "cohortlabel": "Part A: Ulixertinib",
           "drug": "Ulixertinib",
           "arm_type": "Experimental",
-          "line_of_therapy": "1,2,3+",
-          "arm_hold_status": "open",
+          "line_of_therapy": "1;2;3+",
+          "arm_hold_status": "closed",
           "biomarker": [
             {
               "cohort": "Part A: Ulixertinib",
@@ -163,8 +169,8 @@
           "cohortlabel": "Part B: Ulixertinib",
           "drug": "Ulixertinib",
           "arm_type": "Experimental",
-          "line_of_therapy": "1,2,3+",
-          "arm_hold_status": "open",
+          "line_of_therapy": "1;2;3+",
+          "arm_hold_status": "closed",
           "biomarker": [
             {
               "cohort": "Part B: Ulixertinib",
@@ -223,8 +229,8 @@
           "cohortlabel": "Part B: Physician's choice of treatment",
           "drug": "Physician's Choice",
           "arm_type": "Experimental",
-          "line_of_therapy": "1,2,3+",
-          "arm_hold_status": "open",
+          "line_of_therapy": "1;2;3+",
+          "arm_hold_status": "closed",
           "biomarker": [
             {
               "cohort": "Part B: Physician's choice of treatment",
@@ -279,7 +285,9 @@
           ]
         }
       ],
-      "docs": "http://averashare.phs-sfalls.amck.net/region/amck/research/cr/protocoldocs/Brain/01JUN2020_BVD-523-ABC_Final_Protocol_V1.0_FINAL_NC1.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-30",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04488003\" target=\"_blank\">NCT04488003<\/a>"

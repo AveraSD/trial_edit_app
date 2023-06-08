@@ -11,11 +11,13 @@
       "details": [
         {
           "code": "Bowel (BOWEL)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         },
         {
           "code": "Colorectal Adenocarcinoma (COADREAD)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         }
       ]
     },
@@ -37,7 +39,7 @@
           "cohortlabel": "Safety Run-in Cohort: Magrolimab + Bevacizumab + FOLFIRI",
           "drug": "Magrolimab | Bevacizumab | Irinotecan | Fluorouracil | Leucovorin",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1;2+",
           "arm_hold_status": "on hold",
           "biomarker": [
             {
@@ -77,7 +79,7 @@
           "cohortlabel": "Randomized Cohort: Magrolimab + Bevacizumab + FOLFIRI",
           "drug": "Magrolimab | Bevacizumab | Irinotecan | Fluorouracil | Leucovorin",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1;2+",
           "arm_hold_status": "on hold",
           "biomarker": [
             {
@@ -117,7 +119,7 @@
           "cohortlabel": "Randomized Cohort: Bevacizumab + FOLFIRI",
           "drug": "Bevacizumab | Irinotecan | Fluorouracil | Leucovorin | NA",
           "arm_type": "Active Comparator",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1;2+",
           "arm_hold_status": "on hold",
           "biomarker": [
             {
@@ -153,7 +155,9 @@
           ]
         }
       ],
-      "docs": "Q:\\MCK\\MOA\\Precision Oncology\\JIT Trials\\Optimal_Working list Optimal Unblinded Study List_FINAL_draft_ 2022.08.11.pdf",
+      "docs": "<a href=\"https://www.optimalresearchportal.com/login/\" target=\"_blank\">Optimal<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-02-08",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT05330429\" target=\"_blank\">NCT05330429<\/a>"

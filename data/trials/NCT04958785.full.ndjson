@@ -2,16 +2,22 @@
   {
     "info": {
       "NCT": "NCT04958785",
-      "Protocol_No": "GS-US-586-6144",	
+      "Protocol_No": "GS-US-586-6144",
       "jit": "Optimal",
       "trial_name": "Gilead Sciences GS-US-586-6144"
     },
     "disease": {
-      "summary": "Locally Advanced or Metastatic Triple-Negative Breast Cancer",
+      "summary": "Melanoma or Solid Tumors",
       "details": [
         {
-          "code": "Breast (BREAST)",
-          "selection": "include"
+          "code": "Melanoma (MEL)",
+          "selection": "include",
+          "stage": "Recurrent"
+        },
+        {
+          "code": "Solid Tumors",
+          "selection": "include",
+          "stage": "Recurrent"
         }
       ]
     },
@@ -30,88 +36,88 @@
       "arm": [
         {
           "ArmID": "1",
-          "cohortlabel": "Safety Run-in Cohort 1: Magrolimab + Nab-Paclitaxel or Paclitaxel",
-          "drug": "Magrolimab | Nab-Paclitaxel | Paclitaxel",
+          "cohortlabel": "Arm #1",
+          "drug": "DAY101 | NA",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "closed",
+          "arm_hold_status": "open",
           "biomarker": [
-            {}
+            {
+              "cohort": "Arm #1",
+              "Gene": "BRAF",
+              "Gene2": "Not available",
+              "Type": "Fusion",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "BRAF Fusion"
+            },
+            {
+              "cohort": "Arm #1",
+              "Gene": "RAF1",
+              "Gene2": "Not available",
+              "Type": "Fusion",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RAF1 Fusion"
+            },
+            {
+              "cohort": "Arm #1",
+              "Gene": "RAF1",
+              "Gene2": "Not available",
+              "Type": "Amplification",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RAF1 Amplification  "
+            }
           ]
         },
         {
           "ArmID": "2",
-          "cohortlabel": "Phase 2 Cohort 1 Arm A: Magrolimab + Nab-Paclitaxel or Paclitaxel",
-          "drug": "Magrolimab | Nab-Paclitaxel | Paclitaxel",
-          "arm_type": "Experimental",
-          "line_of_therapy": "1",
-          "arm_hold_status": "open",
-          "biomarker": [
-            {
-              "cohort": "Phase 2 Cohort 1 Arm A: Magrolimab + Nab-Paclitaxel or Paclitaxel",
-              "Gene": "Not available",
-              "Gene2": "Not available",
-              "Type": "PD-L1",
-              "Variant": "Not available",
-              "Selection": "include",
-              "Function": "negative",
-              "summary": "PD-L1 negative  "
-            }
-          ]
-        },
-        {
-          "ArmID": "3",
-          "cohortlabel": "Phase 2 Cohort 1 Arm B: Nab-Paclitaxel or Paclitaxel",
-          "drug": "Magrolimab | Nab-Paclitaxel | Paclitaxel",
-          "arm_type": "Active Comparator",
-          "line_of_therapy": "1",
-          "arm_hold_status": "open",
-          "biomarker": [
-            {
-              "cohort": "Phase 2 Cohort 1 Arm B: Nab-Paclitaxel or Paclitaxel",
-              "Gene": "Not available",
-              "Gene2": "Not available",
-              "Type": "PD-L1",
-              "Variant": "Not available",
-              "Selection": "include",
-              "Function": "negative",
-              "summary": "PD-L1 negative  "
-            }
-          ]
-        },
-        {
-          "ArmID": "4",
-          "cohortlabel": "Safety Run-in Cohort 2: Magrolimab + Sacituzumab govitecan",
-          "drug": "Magrolimab | Sacituzumab govitecan | NA",
-          "arm_type": "Experimental",
-          "line_of_therapy": "2",
-          "arm_hold_status": "open",
-          "biomarker": [
-            {
-              "cohort": "Safety Run-in Cohort 2: Magrolimab + Sacituzumab govitecan",
-              "Gene": "Not available",
-              "Gene2": "Not available",
-              "Type": "PD-L1",
-              "Variant": "Not available",
-              "Selection": "include",
-              "Function": "positive",
-              "summary": "PD-L1 positive  "
-            }
-          ]
-        },
-        {
-          "ArmID": "5",
-          "cohortlabel": "Phase 2 Cohort 2: Magrolimab + Sacituzumab govitecan",
-          "drug": "Magrolimab | Sacituzumab govitecan | NA",
+          "cohortlabel": "Arm #2",
+          "drug": "DAY101 | Pimasertib Hydrochloride",
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
-          "arm_hold_status": "closed",
+          "arm_hold_status": "open",
           "biomarker": [
-            {}
+            {
+              "cohort": "Arm #2",
+              "Gene": "BRAF",
+              "Gene2": "Not available",
+              "Type": "Fusion",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "BRAF Fusion"
+            },
+            {
+              "cohort": "Arm #2",
+              "Gene": "RAF1",
+              "Gene2": "Not available",
+              "Type": "Fusion",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RAF1 Fusion"
+            },
+            {
+              "cohort": "Arm #2",
+              "Gene": "RAF1",
+              "Gene2": "Not available",
+              "Type": "Amplification",
+              "Variant": "Not available",
+              "Selection": "include",
+              "Function": "Not available",
+              "summary": "RAF1 Amplification  "
+            }
           ]
         }
       ],
-      "docs": "Q:\\MCK\\MOA\\Precision Oncology\\JIT Trials\\Optimal_Working list Optimal Unblinded Study List_FINAL_draft_ 2022-09-26.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-20",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04958785\" target=\"_blank\">NCT04958785<\/a>"

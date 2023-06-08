@@ -1,0 +1,82 @@
+[
+  {
+    "info": {
+      "NCT": "NCT04242095",
+      "Protocol_No": "A151804",
+      "jit": "Avera Trials",
+      "trial_name": "Alliance"
+    },
+    "disease": {
+      "summary": "All Solid Tumors,Malignancy",
+      "details": [
+        {
+          "code": "Malignancy,Solid Tumors",
+          "selection": "include",
+          "stage": "New diagnosis"
+        }
+      ]
+    },
+    "query": {
+      "nct": "NCT04242095",
+      "title": "Establishment of a National Biorepository to Advance Studies of Immune-Related Adverse Events",
+      "current_status": "Recruiting",
+      "status_verif_date": "January 27,2020",
+      "last_update_date": "April 4,2023",
+      "trial_hold_status": "open",
+      "sponsor": "Alliance for Clinical Trials in Oncology",
+      "brief_summary": "This trial collects research data and samples from patients who experience immunotherapy side effects to store for use in future research studies.",
+      "conditions":"Malignancy,Solid Tumors",
+      "type": "Observational",
+      "phase": "Prospective",
+      "arm": [
+        {
+          "ArmID": "Not applicable",
+          "cohortlabel": "Not applicable",
+          "drug": "Not applicable",
+          "arm_type": "Not applicable",
+          "line_of_therapy": "Not applicable",
+          "arm_hold_status": "Not applicable",
+          "biomarker": [
+            {
+              "cohort": "Not applicable",
+              "Gene": "Not applicable",
+              "Gene2": "Not applicable",
+              "Type": "Not applicable",
+              "Variant": "Not applicable",
+              "Selection": "Not applicable",
+              "Function": "Not applicable",
+              "summary": "absent"
+            }
+          ]
+        },
+        {
+          "ArmID": "Not applicable",
+          "cohortlabel": "Not applicable",
+          "drug": "Not applicable",
+          "arm_type": "Not applicable",
+          "line_of_therapy": "Not applicable",
+          "arm_hold_status": "Not applicable",
+          "biomarker": [
+            {
+		"cohort": "Not applicable",
+              "Gene": "Not applicable",
+              "Gene2": "Not applicable",
+              "Type": "Not applicable",
+              "Variant": "Not applicable",
+              "Selection": "Not applicable",
+              "Function": "Not applicable",
+              "summary": "absent"            
+            }
+		
+          ]
+        }
+      ],
+      "docs": "<a href=\"https://avera-ereg-prod.forteresearchapps.com/ereg-web/protocols/2922/section-6613\" target=\"_blank\">eREG<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-06-02",
+      "min_age": "Child, Adult, Older Adult",
+      "gender": "All",
+      "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04242095\" target=\"_blank\">NCT04242095<\/a>"
+    }
+  }
+]

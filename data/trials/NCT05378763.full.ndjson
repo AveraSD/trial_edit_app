@@ -11,7 +11,8 @@
       "details": [
         {
           "code": "Non-Small Cell Lung Cancer (NSCLC)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         }
       ]
     },
@@ -33,7 +34,7 @@
           "cohortlabel": "Poziotinib 8 mg",
           "drug": "Poziotinib",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1",
           "arm_hold_status": "closed",
           "biomarker": [
             {
@@ -73,7 +74,7 @@
           "cohortlabel": "Docetaxel 75 mg/m^2",
           "drug": "Docetaxel",
           "arm_type": "Active Comparator",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1",
           "arm_hold_status": "closed",
           "biomarker": [
             {
@@ -109,7 +110,9 @@
           ]
         }
       ],
-      "docs": "Q:\\MCK\\MOA\\Precision Oncology\\JIT Trials \\optimal-working list Optimal Unblinded Study List_Final_draft_2022.08.11.pdf",
+      "docs": "<a href=\"https://www.optimalresearchportal.com/login/\" target=\"_blank\">Optimal<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-02-08",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT05378763\" target=\"_blank\">NCT05378763<\/a>"

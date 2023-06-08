@@ -10,16 +10,19 @@
       "summary": "locally advanced or metastatic mNSCLC and mSCLC metastatic urothelial cancer ",
       "details": [
         {
+          "code": "Bladder/Urinary Tract (BLADDER)",
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
+        },
+        {
           "code": "Combined Small Cell Lung Carcinoma (CSCLC)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         },
         {
           "code": "Non-Small Cell Lung Cancer (NSCLC)",
-          "selection": "include"
-        },
-        {
-          "code": "Bladder/Urinary Tract (BLADDER)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         }
       ]
     },
@@ -41,7 +44,7 @@
           "cohortlabel": "Safety Run-in Cohort 1, mNSCLC, mUC, mSCLC (Magrolimab + Docetaxel)",
           "drug": "Magrolimab | Docetaxel",
           "arm_type": "Experimental",
-          "line_of_therapy": "Not available",
+          "line_of_therapy": "1;2;3",
           "arm_hold_status": "Not available",
           "biomarker": [
             {
@@ -61,7 +64,7 @@
           "cohortlabel": "Phase 2 Cohort 1a, mNSCLC (Magrolimab + Docetaxel)",
           "drug": "Magrolimab | Docetaxel",
           "arm_type": "Experimental",
-          "line_of_therapy": "2",
+          "line_of_therapy": "1;2",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -81,7 +84,7 @@
           "cohortlabel": "Phase 2 Cohort 1b, mUC (Magrolimab + Docetaxel)",
           "drug": "Magrolimab | Docetaxel",
           "arm_type": "Experimental",
-          "line_of_therapy": "3",
+          "line_of_therapy": "2;3",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -101,7 +104,7 @@
           "cohortlabel": "Phase 2 Cohort 1c, mSCLC (Magrolimab + Docetaxel)",
           "drug": "Magrolimab | Docetaxel",
           "arm_type": "Experimental",
-          "line_of_therapy": "2",
+          "line_of_therapy": "1;2",
           "arm_hold_status": "open",
           "biomarker": [
             {
@@ -117,7 +120,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/Optimal_Working list Optimal Unblinded Study List_FINAL_draft_ 2022.08.11.pdf",
+      "docs": "<a href=\"https://www.optimalresearchportal.com/login/\" target=\"_blank\">Optimal<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-20",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04827576\" target=\"_blank\">NCT04827576<\/a>"

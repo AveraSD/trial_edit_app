@@ -2,6 +2,7 @@
   {
     "info": {
       "NCT": "NCT05633654",
+	"Protocol_No": "ASCENT-05",
       "jit": "Optimal",
       "trial_name": "ASCENT-05"
     },
@@ -10,7 +11,13 @@
       "details": [
         {
           "code": "Breast (BREAST)",
-          "selection": "include"
+          "selection": "exclude",
+          "stage": "Metastatic"
+        },
+        {
+          "code": "Breast (BREAST)",
+          "selection": "include",
+          "stage": "NA"
         }
       ]
     },
@@ -148,7 +155,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/Optimal.txt",
+      "docs": "<a href=\"https://www.optimalresearchportal.com/login/\" target=\"_blank\">Optimal<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-02-08",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT05633654\" target=\"_blank\">NCT05633654<\/a>"

@@ -11,7 +11,8 @@
       "details": [
         {
           "code": "Head and Neck (HEAD_NECK)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Un-resectable;Advanced Stage;Recurrent;Metastatic"
         }
       ]
     },
@@ -37,14 +38,14 @@
           "arm_hold_status": "open",
           "biomarker": [
             {
-	      "cohort": "Safety Run-in Cohort 1, Magrolimab + Pembrolizumab + 5-FU + Platinum",
+              "cohort": "Safety Run-in Cohort 1, Magrolimab + Pembrolizumab + 5-FU + Platinum",
               "Gene": "Not available",
-		"Gene2": "Not available",
+              "Gene2": "Not available",
               "Type": "PD-L1",
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-		"summary": "PD-L1"
+              "summary": "PD-L1"
             }
           ]
         },
@@ -55,7 +56,9 @@
           "arm_type": "Experimental",
           "line_of_therapy": "1",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         },
         {
           "ArmID": "3",
@@ -66,14 +69,14 @@
           "arm_hold_status": "open",
           "biomarker": [
             {
-		"cohort": "Safety Run-in Cohort 2, Magrolimab + Docetaxel",
-             "Gene": "Not available",
-		 "Gene2": "Not available",
+              "cohort": "Safety Run-in Cohort 2, Magrolimab + Docetaxel",
+              "Gene": "Not available",
+              "Gene2": "Not available",
               "Type": "PD-L1",
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-		"summary": "PD-L1"
+              "summary": "PD-L1"
             }
           ]
         },
@@ -86,14 +89,14 @@
           "arm_hold_status": "open",
           "biomarker": [
             {
-		 "cohort": "Pre-expansion Safety Run-in Cohort, Magrolimab + Pembrolizumab",
+              "cohort": "Pre-expansion Safety Run-in Cohort, Magrolimab + Pembrolizumab",
               "Gene": "Not available",
-		 "Gene2": "Not available",
+              "Gene2": "Not available",
               "Type": "PD-L1",
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-		 "summary": "PD-L1" 
+              "summary": "PD-L1"
             }
           ]
         },
@@ -106,14 +109,14 @@
           "arm_hold_status": "open",
           "biomarker": [
             {
-		 "cohort": "Phase 2 Cohort 1, Magrolimab + Pembrolizumab + 5-FU + Platinum (Arm A)",
-		"Gene": "Not available",
-		"Gene2": "Not available",
+              "cohort": "Phase 2 Cohort 1, Magrolimab + Pembrolizumab + 5-FU + Platinum (Arm A)",
+              "Gene": "Not available",
+              "Gene2": "Not available",
               "Type": "PD-L1",
               "Variant": "Not available",
               "Selection": "include",
               "Function": "Not available",
-		"summary": "PD-L1"
+              "summary": "PD-L1"
             }
           ]
         },
@@ -124,7 +127,9 @@
           "arm_type": "Active Comparator",
           "line_of_therapy": "Not available",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         },
         {
           "ArmID": "7",
@@ -133,7 +138,9 @@
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         },
         {
           "ArmID": "8",
@@ -142,7 +149,9 @@
           "arm_type": "Experimental",
           "line_of_therapy": "Not available",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         },
         {
           "ArmID": "9",
@@ -151,7 +160,9 @@
           "arm_type": "Experimental",
           "line_of_therapy": "1",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         },
         {
           "ArmID": "10",
@@ -160,7 +171,9 @@
           "arm_type": "Experimental",
           "line_of_therapy": "2",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         },
         {
           "ArmID": "11",
@@ -169,10 +182,14 @@
           "arm_type": "Experimental",
           "line_of_therapy": "3",
           "arm_hold_status": "open",
-          "biomarker": []
+          "biomarker": [
+            {}
+          ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/Optimal_Working list Optimal Unblinded Study List_FINAL_draft_ 2022.06.07.pdf",
+      "docs": "<a href=\"https://www.optimalresearchportal.com/login/\" target=\"_blank\">Optimal<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-20",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04854499\" target=\"_blank\">NCT04854499<\/a>"

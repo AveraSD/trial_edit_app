@@ -11,7 +11,8 @@
       "details": [
         {
           "code": "Solid Tumors",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage"
         }
       ]
     },
@@ -69,7 +70,9 @@
           ]
         }
       ],
-      "docs": "Q:\\MCK\\MOA\\Precision Oncology\\JIT Trials \\CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-02-08",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT05199584\" target=\"_blank\">NCT05199584<\/a>"

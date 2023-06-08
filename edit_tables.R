@@ -3,8 +3,11 @@ library(shinyWidgets)
 tbRec <- reactiveValues(
   picktb = tibble(), #Side table selection
   currTb = tibble(), # current  tibble 
-  infoTb = tibble(), # Meta Information
-  infoUp = tibble(), # updated information tibble
+  infoTb1 = tibble(), # Meta Information part 1
+  infoUp1 = tibble(), # updated information tibble part 1
+  infoTb2 = tibble(), # Meta Information part 2
+  infoUp2 = tibble(), # updated information tibble part 2
+  
   docRec = tibble(), # Document 
   docUp = tibble(), # updated Document tibble
   disRec = tibble(), # disease  
@@ -80,7 +83,7 @@ parseTrials <- function(jsonfile) {
     #biomarker = list(trial$query$arm[[1]]$biomarker)
     biomarker = list(biomarker = bind_cols(arm_groups %>% select(biomarker))),
     
-    location = trial$query$locations
+    locations = trial$query$locations
   )
   return(parsedTrial)
   
@@ -124,7 +127,7 @@ loadDbData <- function() {
     "Summary" = brief_summary,
     "Conditions" = conditions,
     # "Conditions" = conditiions,
-    "location" = locations,
+    #"location" = locations,
    "docUpdate" = doclastupdate,
     "Phase" = phase,
     "StudyType" = type,
@@ -217,7 +220,7 @@ outSubmit <- function() {
   tr2 <- isolate(tbRec$rsdf)
   #print(tr2)
   
-  outjson <- paste0(here(trial_out), 
+  outjson <- paste0(here(trialspath), 
                     paste0(tr2 %>% unnest(c(info, query)) %>% select(NCT) %>% as.character(), ".full.ndjson"))
   writeLines(tr2 %>% toJSON(pretty = T), outjson)
   message(paste0("Written to file: ", outjson))
@@ -236,3 +239,4 @@ create_btns_edit <- function(x) {
                      ))
 }
 
+# #trial_out: "data/trials_edit/"

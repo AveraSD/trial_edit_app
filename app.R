@@ -306,13 +306,46 @@ server <- function(input, output,session) {
  
  # Display the editable table for the Trial Part 1 TAB 
  
- # Display editable table - "Meta Information table"
  
- output$trlinfo_table = renderDataTable({
-   tbRec$infoTb = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Title, Status, StatusDate, LastUpdate, HoldStatus, Sponsor, Summary , Conditions, 
-                             Phase , StudyType, MinAge,Gender, Link )
+ # ----------------------------------------------------------------------------------------------------------- #
+ # ----------------------------------------------------------------------------------------------------------- #
+ 
+ # Display editable table - "Meta Information table Part 1"
+ 
+ output$trlinfo1_table = renderDataTable({
+   tbRec$infoTb1 = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, docUpdate, HoldStatus) 
+   
+   datatable(isolate( tbRec$infoTb1),editable = TRUE, class = "compact cell-border", options = list(
+     searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
+ })
+ 
+ observeEvent(input$trlinfo1_table_cell_edit,{
+   #celldis <- input[["trldoc_table_cell_edit"]]
+   tbRec$infoTb1 <<- editData(tbRec$infoTb1, input$trlinfo1_table_cell_edit, proxy = dataTableProxy("trlinfo1_table"), rownames = FALSE)
+   
+ })
+ 
+ 
+ # save the Meta Information table Part 1 datatable with edit update 
+ observeEvent(input$saveInfo1, {
+   tbRec$infoUp1 = tbRec$infoTb1
+   alert("Saved successfully!")
+   shinyjs::disable("test")
+ })
+ 
+ 
+ 
+ 
+ 
+ # -------------------------------------------------------------------------------------------------------------------- #
+ # -------------------------------------------------------------------------------------------------------------------- #
+ 
+ # Display editable table - "Meta Information table Part 2"
+ 
+ output$trlinfo2_table = renderDataTable({
+   tbRec$infoTb2 = tbRec$currTb  %>% select( Title, Status, StatusDate, LastUpdate, Sponsor, Summary , Conditions, Phase , StudyType, MinAge,Gender, Link )
    #print(tbRec$infoTb)
-   displayTb = t(tbRec$infoTb)
+   displayTb = t(tbRec$infoTb2)
    datatable(displayTb, colnames = c("Details"),editable = TRUE, class = "compact stripe row-border nowrap", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto")
    })
@@ -343,25 +376,30 @@ server <- function(input, output,session) {
  #   print(tbRec$infoTb)
  # })
  
- observeEvent(input$saveInfo, {
+ observeEvent(input$saveInfo2, {
    #tbRec$infoUp <- tbRec$infoTb
-   cell <- input[["trlinfo_table_cell_edit"]]
+   cell <- input[["trlinfo2_table_cell_edit"]]
    if (is.null(cell)) {
-     tbRec$infoUp <- tbRec$infoTb
+     tbRec$infoUp2 <- tbRec$infoTb2
    }else{
-     tbRec$infoUp <- tbRec$infoTb
-     tbRec$infoUp[cell$col, cell$row] <- cell$value
-     tbRec$infoTb <-  tbRec$infoUp
+     tbRec$infoUp2 <- tbRec$infoTb2
+     tbRec$infoUp2[cell$col, cell$row] <- cell$value
+     tbRec$infoTb2 <-  tbRec$infoUp2
    }
    alert("Saved successfully!")
+   shinyjs::disable("test")
    #df(newdf)
  })
+ 
+ 
+ # -------------------------------------------------------------------------------------------------------------------- #
+ # -------------------------------------------------------------------------------------------------------------------- #
  
  
  # Display editable table - "Document Information table"
  
  output$trldoc_table = renderDataTable({
-   tbRec$docRec = tbRec$currTb  %>% select(Documentation, location, docUpdate) 
+   tbRec$docRec = tbRec$currTb  %>% select(Documentation, locations) 
   
    datatable(isolate(tbRec$docRec),editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
@@ -378,6 +416,7 @@ server <- function(input, output,session) {
  observeEvent(input$saveDoc, {
    tbRec$docUp = tbRec$docRec
    alert("Saved successfully!")
+   shinyjs::disable("test")
  })
  
  # Displaying the Disease summary table 
@@ -410,6 +449,7 @@ server <- function(input, output,session) {
  observeEvent(input$saveDis, {
      tbRec$disUp = tbRec$disRec
      alert("Saved successfully!")
+     shinyjs::disable("test")
    
  })
  
@@ -476,6 +516,7 @@ server <- function(input, output,session) {
  observeEvent(input$saveChrt, {
    tbRec$armUp = tbRec$armRec 
    alert("Saved successfully!")
+   shinyjs::disable("test")
  })
  
  # observeEvent(input$saveChrt, {
@@ -552,6 +593,7 @@ server <- function(input, output,session) {
   
      tbRec$biomUp <- tbRec$biomRec
      alert("Saved successfully!")
+     shinyjs::disable("test")
  })
  # 
  ### remove edit modal when close or submit button is clicked
@@ -571,7 +613,8 @@ server <- function(input, output,session) {
      # save all the variables to their appropiate values 
    #print(input$trlinfo_table)
    #infoDis = input$trlinfo_table$value
-     infoDis <-  as_tibble(tbRec$infoUp)
+     infoDis1 <-  as_tibble(tbRec$infoUp1)
+     infoDis2 <-  as_tibble(tbRec$infoUp2)
      docDis <- as_tibble(tbRec$docUp)
      
 
@@ -601,25 +644,25 @@ server <- function(input, output,session) {
 #     Phase , StudyType, Documentation, MinAge,Gender, Link 
      # final tibble to display  
      disBrw2 <<- tibble(
-       info = tibble(NCT = infoDis$NCT,
-                     Protocol_No = infoDis$Protocol,
-                     jit = infoDis$JIT,
-                     trial_name = infoDis$Name
+       info = tibble(NCT = infoDis1$NCT,
+                     Protocol_No = infoDis1$Protocol,
+                     jit = infoDis1$JIT,
+                     trial_name = infoDis1$Name
        ),
        disease = tibble(summary = tbRec$currTb$sumDis,
                         details = list(DisTab)
        ),
-       query = tibble(nct = infoDis$NCT,
-                      title = infoDis$Title,
-                      current_status = infoDis$Status,
-                      status_verif_date = infoDis$StatusDate,
-                      last_update_date = infoDis$LastUpdate,
-                      trial_hold_status = infoDis$HoldStatus,
-                      sponsor = infoDis$Sponsor,
-                      brief_summary = infoDis$Summary,
-                      conditions = infoDis$Conditions,
-                      type = infoDis$StudyType,
-                      phase = infoDis$Phase,
+       query = tibble(nct = infoDis1$NCT,
+                      title = infoDis2$Title,
+                      current_status = infoDis2$Status,
+                      status_verif_date = infoDis2$StatusDate,
+                      last_update_date = infoDis2$LastUpdate,
+                      trial_hold_status = infoDis1$HoldStatus,
+                      sponsor = infoDis2$Sponsor,
+                      brief_summary = infoDis2$Summary,
+                      conditions = infoDis2$Conditions,
+                      type = infoDis2$StudyType,
+                      phase = infoDis2$Phase,
                       arm = list(armForBioMk),
                       #arm = list(armTb),
                       # docs = if(input$doc_fileType == "Flat File") {
@@ -630,11 +673,11 @@ server <- function(input, output,session) {
                       #   docs = tagvar
                       # },
                       docs = docDis$Documentation,
-                     locations = docDis$location,
-                     doclastupdate = docDis$docUpdate,
-                      min_age = infoDis$MinAge,
-                      gender = infoDis$Gender,
-                      link = infoDis$Link
+                     locations = docDis$locations,
+                     doclastupdate =  infoDis1$docUpdate,
+                      min_age = infoDis2$MinAge,
+                      gender = infoDis2$Gender,
+                      link = infoDis2$Link
        )
      )
      

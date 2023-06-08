@@ -4,14 +4,15 @@
       "NCT": "NCT04793958",
       "Protocol_No": "849-010",
       "jit": "Caris",
-      "trial_name": "Mirati Therapeutics 849-010"
+      "trial_name": "Mirati Therapeutics KRYSTAL-10"
     },
     "disease": {
       "summary": "Advanced Metastatic Colorectal Cancer",
       "details": [
         {
           "code": "Bowel (BOWEL)",
-          "selection": "include"
+          "selection": "include",
+          "stage": "Advanced Stage;Metastatic"
         }
       ]
     },
@@ -69,7 +70,9 @@
           ]
         }
       ],
-      "docs": "Q:/MCK/MOA/Precision Oncology/JIT Trials/CarisPharmatechStudyList_2022-07-12.pdf",
+      "docs": "<a href=\"https://trialplus.carisls.com/\" target=\"_blank\">Caris<\/a>",
+      "locations": "Sioux Falls SD",
+      "doclastupdate": "2023-01-20",
       "min_age": "18 Years",
       "gender": "All",
       "link": "<a href=\"https://clinicaltrials.gov/ct2/show/NCT04793958\" target=\"_blank\">NCT04793958<\/a>"
