@@ -126,14 +126,13 @@ loadDbData <- function() {
     "Sponsor" = sponsor,
     "Summary" = brief_summary,
     "Conditions" = conditions,
-    # "Conditions" = conditiions,
-    #"location" = locations,
+   
+    "locations" = locations,
    "docUpdate" = doclastupdate,
     "Phase" = phase,
     "StudyType" = type,
     "Documentation" = docs,
-    # "InclExclCriteria" = criteria,
-    # "InclExclCriteria" = db_tbl$details[[1]][2],
+    
     "MinAge" = min_age,
     "Gender" = gender,
     "Link" = link,
