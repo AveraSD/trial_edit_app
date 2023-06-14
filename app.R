@@ -36,7 +36,7 @@ source(here("modal_scripts.R"))
 ui <- dashboardPage(
   
                     dashboardHeader(
-                      title=span("Avera Genomics Trials",style = "color: white; font-weight: bold;"),titleWidth = 350
+                      title=span("Avera Genomics Trials",style = "color: white; font-weight: bold;"),titleWidth = 550
                       #theme = "grey_dark"
                       #windowTitle = "trialEdit"
                     ),
@@ -51,7 +51,7 @@ ui <- dashboardPage(
     
 
     # Sidebar with a slider input for number of bins 
-    dashboardSidebar(collapsed = FALSE, width = 350,
+    dashboardSidebar(collapsed = FALSE, width = 550,
                      br(),
                      h5(strong(span("~~~~~~~~~~~~ SELECT TRIAL TO EDIT ~~~~~~~~~~~~~",style="color:black"))),
                      br(),
@@ -266,13 +266,13 @@ server <- function(input, output,session) {
      datatable(tbRec$picktb[,2:4],
                rownames = FALSE,
                colnames = c("NCT ID","Protocol","Action"),
-               filter = list(position = 'bottom', clear = FALSE),
+               filter = list(position = 'top', clear = FALSE),
                class = "compact stripe row-border nowrap",
                # Escape the HTML in all except 1st column (which has the buttons)
               escape = FALSE,
               selection = "single",
               options = list(
-                searching = FALSE, 
+                searching = TRUE, 
                 pageLength = 30,dom = 'tip' )
                )
      
