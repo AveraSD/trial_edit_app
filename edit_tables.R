@@ -113,6 +113,7 @@ loadDbData <- function() {
     "JIT" = jit,
     "Name" = trial_name,
     "Protocol" = Protocol_No,
+    "Diseasecat" = disease_category, # added new variable for disease_category - October 10
     
     # disease
     "sumDis" = summary,

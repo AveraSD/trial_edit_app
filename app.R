@@ -313,7 +313,9 @@ server <- function(input, output,session) {
  # Display editable table - "Meta Information table Part 1"
  
  output$trlinfo1_table = renderDataTable({
-   tbRec$infoTb1 = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, docUpdate, HoldStatus) 
+  # tbRec$infoTb1 = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, docUpdate, HoldStatus) 
+   
+   tbRec$infoTb1 = tbRec$currTb  %>% select(NCT, JIT, Name, Protocol, Diseasecat, docUpdate, HoldStatus)  ###Added disease category - oct 10
    
    datatable(isolate( tbRec$infoTb1),editable = TRUE, class = "compact cell-border", options = list(
      searching = FALSE, scrollX = TRUE, pageLength = 20,dom = 'tip' ), selection = 'single',width = "auto", rownames = F )
@@ -647,7 +649,11 @@ server <- function(input, output,session) {
        info = tibble(NCT = infoDis1$NCT,
                      Protocol_No = infoDis1$Protocol,
                      jit = infoDis1$JIT,
-                     trial_name = infoDis1$Name
+                     trial_name = infoDis1$Name,
+                     #newly added for disease_category oct' 23rd
+                     disease_category = infoDis1$Diseasecat
+                     ###
+                     
        ),
        disease = tibble(summary = tbRec$currTb$sumDis,
                         details = list(DisTab)
