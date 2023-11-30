@@ -115,6 +115,8 @@ loadDbData <- function() {
     "Protocol" = Protocol_No,
     "Diseasecat" = disease_category, # added new variable for disease_category - October 10
     
+    "PrincipalInvestigator" = Principal_Investigator,
+    
     # disease
     "sumDis" = summary,
 
